@@ -1,0 +1,17 @@
+import React from 'react'
+
+function Home() {
+    return (
+        <div>
+            <h2>User Page</h2>
+            <div class="nodecircle">
+      <div id="nodecircle1"></div>
+      <div id="nodecircle2"></div>
+      <div id="nodecircle3"></div>
+      <div id="nodecircle4"></div>
+    </div>
+        </div>
+    )
+}
+
+export default Home
