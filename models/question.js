@@ -1,42 +1,16 @@
-module.exports = function(sequelize, DataTypes) {
-  var Question = sequelize.define("Question", {
-    question: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    choiceA: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    choiceB: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    choiceC: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    choiceD: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    answer: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    QuizId: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
-  });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-  Question.associate = function(models) {
-    Question.belongsTo(models.Quiz, {
-      foreginKey: {
-        allowNull: false
-      }
-    });
-  };
+const questionSchema = new Schema({
+  question: { type: String, required: true },
+  choiceA: { type: String, required: false },
+  choiceB: { type: String, required: false },
+  choiceC: { type: String, required: false },
+  choiceD: { type: String, required: false },
+  answer: { type: String, required: true },
+  quizID: [{ type: Schema.Types.ObjectId, ref: "Quiz" }]
+});
 
-  return Question;
-};
+const Question = mongoose.model("Book", questionSchema);
+
+module.exports = Question;

@@ -1,46 +1,12 @@
-module.exports = function(sequelize, DataTypes) {
-  var Quiz = sequelize.define("Quiz", {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    subject: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "General"
-    },
-    owner: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-  //this can get scrapped here and should be converted to the api routes instead. index.js In the routes directory 
-  // Quiz.associate = function(models) {
-  //   // We're saying that a Post should belong to an Author
-  //   // A Post can't be created without an Author due to the foreign key constraint
-  //   Quiz.belongsTo(models.User, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+const quizSchema = new Schema({
+  name: { type: String, required: true },
+  subject: { type: String, required: true },
+  userID: [{ type: Schema.Types.ObjectId, ref: "User" }]
+});
 
-  // Quiz.associate = function(models) {
-  //   // We're saying that a Post should belong to an Author
-  //   // A Post can't be created without an Author due to the foreign key constraint
-  //   Quiz.hasMany(models.Question, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+const Quiz = mongoose.model("Quiz", quizSchema);
 
-  // Quiz.associate = function(models) {
-  //   // We're saying that a Post should belong to an Author
-  //   // A Post can't be created without an Author due to the foreign key constraint
-  //   Quiz.hasMany(models.Score, {
-  //     onDelete: "cascade"
-  //   });
-  // };
-
-  return Quiz;
-};
+module.exports = Quiz;

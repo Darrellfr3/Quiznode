@@ -1,19 +1,13 @@
-module.exports = function(sequelize, DataTypes) {
-  var Score = sequelize.define("Score", {
-    scores: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  });
-  Score.associate = function(models) {
-    Score.belongsTo(models.Quiz, {
-      onDelete: "cascade"
-    });
-  };
-  Score.associate = function(models) {
-    Score.belongsTo(models.User, {
-      onDelete: "cascade"
-    });
-  };
-  return Score;
-};
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const scoreSchema = new Schema({
+  score: { type: Number, required: true },
+  author: { type: String, required: true },
+  userID: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  quizID: [{ type: Schema.Types.ObjectId, ref: "Quiz" }]
+});
+
+const Score = mongoose.model("Score", scoreSchema);
+
+module.exports = Score;
