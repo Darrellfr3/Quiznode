@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Header from "../components/Header/Header";
 
 function Home() {
     return (
+
         <div>
+            <Header />
             <h2>User Page</h2>
             <div class="nodecircle">
       <div id="nodecircle1"></div>
