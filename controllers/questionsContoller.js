@@ -4,21 +4,14 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Quiz
-      .findById(id)
+      .findById(req.params.id)
       .populate("questionID")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.Question
-      .create({
-        question: req.body.question,
-        choiceA: req.body.choiceA,
-        choiceB: req.body.choiceB,
-        choiceC: req.body.choiceC,
-        choiceD: req.body.choiceD,
-        answer: req.body.answer, 
-      })
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

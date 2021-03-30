@@ -4,13 +4,13 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Quiz
-      .find()
+      .find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.Quiz
-      .create({ name: req.body.name, subject: req.body.subject })
+      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
