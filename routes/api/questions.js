@@ -1,18 +1,16 @@
-var db = require("../../models");
+const router = require("express").Router();
+const quizController = require("../../controllers/quizController");
 
-module.exports = function(app) {
+// Matches with "/api/quizs"
+router.route("/")
+  .get(quizController.findAll)
+  .post(quizController.create);
 
-  // route for posting new scores to the db
-  app.post("/api/createQuestion", function(req, res) {
-    db.Question.create({
-      question: req.body.question,
-      choiceA: req.body.choiceA,
-      choiceB: req.body.choiceB,
-      choiceC: req.body.choiceC,
-      choiceD: req.body.choiceD,
-      answer: req.body.answer,
-      QuizId: req.body.quizId
-    }).then;
-    res.end();
-  });
-};
+// Matches with "/api/quizs/:id"
+// router
+//   .route("/:id")
+//   .get(quizController.findById)
+//   .put(quizController.update)
+//   .delete(quizController.remove);
+
+module.exports = router;
