@@ -8,7 +8,7 @@ const questionSchema = new Schema({
   choiceC: { type: String, required: false },
   choiceD: { type: String, required: false },
   answer: { type: String, required: true },
-  quizID: [{ type: Schema.Types.ObjectId, ref: "Quiz" }]
+  quizID: { type: Schema.Types.ObjectId, ref: "Quiz" }
 });
 
 const Question = mongoose.model("Book", questionSchema);
