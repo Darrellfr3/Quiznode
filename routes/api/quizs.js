@@ -1,6 +1,6 @@
 // decided it would be easier to have seperate routes for quiz information
 
-var db = require("../models");
+var db = require("../../models");
 
 module.exports = function(app) {
 
