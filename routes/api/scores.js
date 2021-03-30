@@ -1,11 +1,17 @@
-var db = require("../../models");
+const router = require("express").Router();
+const scoresController = require("../../controllers/scoresController");
 
-module.exports = function(app) {
+// Matches with "/api/books"
+router.route("/")
+  // .get(scoresController.findAll)
+  .post(scoresController.create);
 
-  // route for posting new scores to the db
-  app.post("/api/scoreCreate", function(req, res) {
-    db.Score.create({
-      score: req.body.score
-    });
-  });
-};
+// Matches with "/api/books/:id"
+router
+  .route("/:id")
+  .get(scoresController.findScore)
+  .get(scoresController.findScores);
+  // .put(booksController.update)
+  // .delete(booksController.remove);
+
+module.exports = router;

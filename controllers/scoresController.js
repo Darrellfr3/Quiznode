@@ -10,7 +10,7 @@ module.exports = {
   },
   findScores: function(req, res) {
     db.Quiz
-      .findById(req.params.id)
+      .findOne(req.params.name)
       .populate("scoreID")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
