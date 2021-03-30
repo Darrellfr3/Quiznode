@@ -10,7 +10,7 @@ module.exports = {
   },
   create: function(req, res) {
     db.Quiz
-      .create({ name: req.body.name, subject: req.body.subject, userID: [{req.user.username}] })
+      .create({ name: req.body.name, subject: req.body.subject })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
