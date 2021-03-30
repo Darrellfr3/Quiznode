@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import pages here
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import TakeQuiz from "./pages/TakeQuiz";
 
 function App() {
   return (
@@ -13,7 +16,9 @@ function App() {
 
           <Route exact path="/home" component={Home} />
 
-          <Route exact path="/logout" component={Logout} />
+          <Route exact path="/takeQuiz" component={TakeQuiz} />
+
+          {/* <Route exact path="/logout" component={Logout} />
 
           <Route exact path="/quiz" component={Quiz} />
 
@@ -23,7 +28,7 @@ function App() {
  
           <Route exact path="/createQuestion" component={CreateQuestion} />
 
-          <Route component={NoMatch} />
+          <Route component={NoMatch} /> */}
 
         </Switch>
       </div>
