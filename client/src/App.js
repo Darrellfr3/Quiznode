@@ -22,14 +22,10 @@ function App() {
 
             <Route exact path="/takeQuiz" component={TakeQuiz} />
 
-<<<<<<< HEAD
-            {/* <Route exact path="/logout" component={Logout} />
-=======
           <Route exact path="/SignUp"component={SignUp} />
 
 
           {/* <Route exact path="/logout" component={Logout} />
->>>>>>> main
 
             <Route exact path="/quiz" component={Quiz} />
 

@@ -10,17 +10,12 @@ const ViewQuestions = () => {
     // TODO - use count and currentQuestion to display questions
     //      - need to make sure this will work, may need to save count to state
     const count = state.questionsAnswered;
-    const currentQuestion= state.currentQuiz.questionID[count];
+    console.log(count);
+    console.log(state.currentQuiz);
+    console.log(state.currentQuestion);
 
-    // function to get question info from the backend
-    const getQuestion = async () => {
-        const question =  await API.getQuestion(currentQuestion);
-        return question;
-    };
-
-    // TODO - use this to set active answer in GlobalState
+    // use this to set active answer in GlobalState
     const makeActive = (value) => {
-        // this will set state.activeAnswer to the clicked answer choice
         dispatch({
             type: "activeAnswer",
             activeAnswer: value
@@ -31,8 +26,11 @@ const ViewQuestions = () => {
     const submitAnswer = () => {
         console.log("submit clicked");
 
-        const questionsAnswered = state.questionsAnswered + 1;
+        let questionsAnswered = state.questionsAnswered + 1;
         let newScore = state.scoreCorrect;
+        let newCount = count + 1;
+        console.log(newCount);
+        // let nextQuestion = state.currentQuiz.questionID[newCount];
 
         if (state.activeAnswer === state.currentAnswer) {
             newScore += 1;
@@ -42,16 +40,11 @@ const ViewQuestions = () => {
             type: "updateScore",
             scoreCorrect: newScore,
             questionsAnswered: questionsAnswered,
-            currentQuestion: currentQuestion
+            // currentQuestion: nextQuestion
         });
     };
 
-    useEffect(() => {
-        getQuestion();
-    }, []);
-
     // TODO - pass in all info from db
-    //      - DONE - need a way for the active question to be highlighted, if statement for each?
     return (
         <div className="container">
 
@@ -79,6 +72,7 @@ const ViewQuestions = () => {
                     <i className="fas fa-search">Submit Answer</i>
                 </button>
             </div>
+
         </div>
     );
 };

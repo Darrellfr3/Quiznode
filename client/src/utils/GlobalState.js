@@ -23,7 +23,7 @@ const reducer = (state, action) => {
                 ...state,
                 scoreCorrect: action.scoreCorrect,
                 questionsAnswered: action.questionsAnswered,
-                currentQuestion: currentQuestion,
+                currentQuestion: action.currentQuestion,
                 loading: false
             }
         default:
