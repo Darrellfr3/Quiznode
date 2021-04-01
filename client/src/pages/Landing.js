@@ -1,13 +1,14 @@
-import React from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import '../components/Landing/index.scss';
+import Navbar from "../components/Landing/navbar";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function Landing() {
-    return (
-        <div>
- 
-          <h3>Create</h3>
-          <p>Create your own quiz.</p>
-        </div>      
-    )
+    return ReactDOM.render(
+      <React.Fragment>
+        <Navbar />
+      </React.Fragment>, document.getElementById('root'));
 }
 
 export default Landing
