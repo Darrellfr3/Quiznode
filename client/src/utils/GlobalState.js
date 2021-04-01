@@ -5,22 +5,39 @@ const { Provider } = StateContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "active":
+        case "activeAnswer":
             return {
                 ...state,
                 activeAnswer: action.activeAnswer,
                 loading: false
             }
-            // add cases here as needed
+    // add cases here as needed
+        case "currentQuiz":
+            return {
+                ...state,
+                currentQuiz: action.currentQuiz,
+                loading: false
+            }
+        case "updateScore":
+            return {
+                ...state,
+                scoreCorrect: action.scoreCorrect,
+                questionsAnswered: action.questionsAnswered,
+                currentQuestion: currentQuestion,
+                loading: false
+            }
         default:
             return state;
     }
 };
 
 const initialState = {
-    currentQuiz: [],
+    currentQuiz: {},
+    currentQuestion: {},
     activeAnswer: "e",
-    // add state keys as needed
+// add state keys as needed
+    scoreCorrect: 0,
+    questionsAnswered: 0,
     loading: false
 };
 
