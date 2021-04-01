@@ -5,13 +5,27 @@ const { Provider } = StateContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case "getQuiz":
+        case "activeAnswer":
             return {
                 ...state,
-                currentQuiz: action.quiz,
+                activeAnswer: action.activeAnswer,
                 loading: false
             }
-            // add cases here as needed
+    // add cases here as needed
+        case "currentQuiz":
+            return {
+                ...state,
+                currentQuiz: action.currentQuiz,
+                loading: false
+            }
+        case "updateScore":
+            return {
+                ...state,
+                scoreCorrect: action.scoreCorrect,
+                questionsAnswered: action.questionsAnswered,
+                currentQuestion: currentQuestion,
+                loading: false
+            }
         default:
             return state;
     }
@@ -19,13 +33,17 @@ const reducer = (state, action) => {
 
 const initialState = {
     currentQuiz: {},
-    // add state keys as needed
+    currentQuestion: {},
+    activeAnswer: "e",
+// add state keys as needed
+    scoreCorrect: 0,
+    questionsAnswered: 0,
     loading: false
 };
 
 const StateProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    return <Provider value={[state,dispatch]} {...props} />;
+    return <Provider value={[state, dispatch]} {...props} />;
 };
 
 const useStateContext = () => {
