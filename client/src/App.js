@@ -4,6 +4,8 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import TakeQuiz from "./pages/TakeQuiz";
+import SignUp from "./pages/SignUp";
+
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
           <Route exact path="/home" component={Home} />
 
           <Route exact path="/takeQuiz" component={TakeQuiz} />
+
+          <Route exact path="/SignUp"component={SignUp} />
+
 
           {/* <Route exact path="/logout" component={Logout} />
 
