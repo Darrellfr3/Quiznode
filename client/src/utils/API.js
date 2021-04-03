@@ -11,9 +11,10 @@ export default {
     },
 
     // quizz routes
-    getQuiz: (id) => {
+    getQuiz: () => {
         return axios.get("/quizs");
     },
+    // add route to get by id
     createQuiz: (quiz) => {
         return axios.post("/quizs", quiz);
     },
