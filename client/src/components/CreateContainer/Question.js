@@ -2,17 +2,8 @@ import React, { Component } from 'react';
 import { Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 import './Question.css';
 
-export default class Question extends Component {
+const Question = (props) => {
 
-    render() {
-
-        let handleInputChange = event => {
-            if (event.target.value.length > 0) {
-                event.target.classList.remove('qInput')
-            } else {
-                event.target.classList.add('qInput')
-            }
-        }
 
         // let addOption = event => {
         //     if(event.target.value.length > 0) {
@@ -22,8 +13,6 @@ export default class Question extends Component {
 
         return (
             <>
-                {this.props.id}
-                {this.props.body}
                 <Form>
                     <InputGroup className="mb-3">
                         <FormControl
@@ -31,27 +20,28 @@ export default class Question extends Component {
                             aria-label="Add Question Here"
                             aria-describedby="basic-addon2"
                             className={'qInput'}
-                            onChange={handleInputChange}
+                            onChange={event => props.handleInputChange(event, props.index)}
                         />
                         <InputGroup.Append>
                             <Button
-                                onClick={this.props.delete}
+                                onClick={() => props.deleteQuestion(props.index)}
                                 variant="outline-warning"
                             >&#x2715;</Button>
                         </InputGroup.Append>
                     </InputGroup>
 
-                    <Form.Group controlId="correctAnswer" className="mb-3">
+                    {/* <Form.Group controlId="correctAnswer" className="mb-3">
                         <Form.Control
                             type="input"
                             placeholder="Add Answer Here"
                             className={'qInput'}
                             onChange={handleInputChange}
                         />
-                    </Form.Group>
+                    </Form.Group> */}
                 </Form>
 
             </>
         )
     }
-}
+
+    export default Question;
