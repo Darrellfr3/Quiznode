@@ -31,9 +31,11 @@ const ViewQuestions = () => {
         let newCount = count + 1;
         console.log(newCount);
         // let nextQuestion = state.currentQuiz.questionID[newCount];
+        console.log("active answer is " + state.activeAnswer);
 
-        if (state.activeAnswer === state.currentAnswer) {
+        if (state.activeAnswer === state.currentQuestion.answer) {
             newScore += 1;
+            console.log("You answered correctly")
         };
         
         dispatch({
@@ -42,6 +44,8 @@ const ViewQuestions = () => {
             questionsAnswered: questionsAnswered,
             // currentQuestion: nextQuestion
         });
+
+        console.log("your score is: " + state.scoreCorrect);
     };
 
     // TODO - pass in all info from db
@@ -53,17 +57,17 @@ const ViewQuestions = () => {
             </div>
 
             <div className="row">
-                <h3>Question- currentQuestion.question</h3>
+                <h3>{state.currentQuestion.question}</h3>
             </div>
 
             <div className="row justify-content-evenly">
                 <div className="col-md-6">
-                    { state.activeAnswer === "a" ? <p id="a" className="text-danger">AnswerA- currentQuestion.choiceA</p> : <p id="a" onClick={() => {makeActive("a")}}>Answer A</p> }
-                    { state.activeAnswer === "c" ? <p id="c" className="text-danger">AnswerC- currentQuestion.choiceC</p> : <p id="c" onClick={() => {makeActive("c")}}>Answer C</p> }
+                    { state.activeAnswer === "a" ? <p id="a" className="text-danger">{state.currentQuestion.choiceA}</p> : <p id="a" onClick={() => {makeActive("a")}}>{state.currentQuestion.choiceA}</p> }
+                    { state.activeAnswer === "c" ? <p id="c" className="text-danger">{state.currentQuestion.choiceC}</p> : <p id="c" onClick={() => {makeActive("c")}}>{state.currentQuestion.choiceC}</p> }
                 </div>
                 <div className="col-md-6">
-                    { state.activeAnswer === "b" ? <p id="b" className="text-danger">AnswerB- currentQuestion.choiceB</p> : <p id="b" onClick={() => {makeActive("b")}}>Answer B</p> }
-                    { state.activeAnswer === "d" ? <p id="d" className="text-danger">AnswerD- currentQuestion.choiceD</p> : <p id="d" onClick={() => {makeActive("d")}}>Answer D</p> }
+                    { state.activeAnswer === "b" ? <p id="b" className="text-danger">{state.currentQuestion.choiceB}</p> : <p id="b" onClick={() => {makeActive("b")}}>{state.currentQuestion.choiceB}</p> }
+                    { state.activeAnswer === "d" ? <p id="d" className="text-danger">{state.currentQuestion.choiceD}</p> : <p id="d" onClick={() => {makeActive("d")}}>{state.currentQuestion.choiceD}</p> }
                 </div>
             </div>
 
