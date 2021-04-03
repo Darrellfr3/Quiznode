@@ -4,20 +4,25 @@ import { useStateContext } from "../../utils/GlobalState";
 
 const SearchBar = () => {
 
-    const catRef = useRef();
+    const subjectRef = useRef();
 
-    const [state, dispatch] = useStateContext;
+    const [state, dispatch] = useStateContext();
 
     const searchQuiz = async (event) => {
         event.preventDefault();
 
-        const response = await API.getQuiz(titleRef.current.value);
+        console.log(subjectRef.current.value);
+
+        const response = await API.getQuiz(subjectRef.current.value);
+        console.log(response);
         // add logic to parse data
 
         dispatch({
-            type: "currentQuiz",
-            post: response.data
-        })
+            type: "searchQuiz",
+            searchResults: [{name: "test4", _id: 4},
+            {name: "test5", _id: 5},
+            {name: "test6", _id: 6}]
+        });
     }; 
  
     return (
@@ -29,7 +34,7 @@ const SearchBar = () => {
                 <div className="input-group">
                     <div className="col-md-8">
                         <div className="form-outline">
-                            <input type="search" id="form1" className="form-control" ref={catRef}/>
+                            <input type="search" id="form1" className="form-control" ref={subjectRef}/>
                         </div>
                     </div>
                     <div className="col-md-4">

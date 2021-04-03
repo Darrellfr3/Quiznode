@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import TakeQuiz from "./pages/TakeQuiz";
 import SignUp from "./pages/SignUp";
+import Search from "./pages/Search";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
             <Route exact path="/takeQuiz" component={TakeQuiz} />
 
           <Route exact path="/SignUp"component={SignUp} />
+
+          <Route exact path="/search" component={Search} />
 
 
           {/* <Route exact path="/logout" component={Logout} />

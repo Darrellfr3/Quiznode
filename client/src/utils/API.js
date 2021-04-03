@@ -11,8 +11,8 @@ export default {
     },
 
     // quizz routes
-    getQuiz: () => {
-        return axios.get("/quizs");
+    getQuiz: (id) => {
+        return axios.get("/quizs/" + id);
     },
     getQuizSubject: (subject) => {
         return axios.get("/quiz/" + subject);

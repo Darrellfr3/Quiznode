@@ -28,12 +28,23 @@ const reducer = (state, action) => {
                 // currentQuestion: action.currentQuestion,
                 loading: false
             }
+        case "searchQuiz":
+            return {
+                ...state,
+                searchResults: action.searchResults,
+                loading: false
+            }
         default:
             return state;
     }
 };
 
 const initialState = {
+    searchResults: [
+        {name: "test1", _id: 1},
+        {name: "test2", _id: 2},
+        {name: "test3", _id: 3}
+    ],
     currentQuiz: {},
     currentQuestion: {
         _id: 0,
