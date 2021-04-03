@@ -8,6 +8,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findSubject: function(req, res) {
+    db.Quiz
+      .find({subject: req.query})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Quiz
       .create(req.body)
