@@ -36,7 +36,7 @@ module.exports = function(app) {
 
     // directs to page where a new quiz can be created
     app.get("/createQuiz", function(req, res) {
-        res.render("createQuiz");
+        res.render("CreateQuiz");
     });
 
     // directs to page where a quiz can be taken
