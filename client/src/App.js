@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import TakeQuiz from "./pages/TakeQuiz";
-import SignUp from "./pages/SignUp";
-
+import CreateQuiz from "./pages/CreateQuiz";
 
 function App() {
   return (
@@ -20,24 +18,17 @@ function App() {
 
             <Route exact path="/home" component={Home} />
 
-            <Route exact path="/takeQuiz" component={TakeQuiz} />
-
-<<<<<<< HEAD
-            {/* <Route exact path="/logout" component={Logout} />
-=======
-          <Route exact path="/SignUp"component={SignUp} />
-
+          <Route exact path="/createQuiz"component={CreateQuiz} />
 
           {/* <Route exact path="/logout" component={Logout} />
->>>>>>> main
 
-            <Route exact path="/quiz" component={Quiz} />
+            {/* <Route exact path="/logout" component={Logout} />
 
-            <Route exact path="/createQuiz"component={CreateQuiz} />
+          
 
-            <Route exact path="/takeQuiz" component={TakeQuiz} />
-  
-            <Route exact path="/createQuestion" component={CreateQuestion} />
+          <Route exact path="/takeQuiz" component={TakeQuiz} />
+ 
+          <Route exact path="/createQuestion" component={CreateQuestion} />
 
             <Route component={NoMatch} /> */}
 
