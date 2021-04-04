@@ -7,10 +7,10 @@ const questionSchema = new Schema({
   choiceB: { type: String, required: false },
   choiceC: { type: String, required: false },
   choiceD: { type: String, required: false },
-  answer: { type: String, required: true },
-  quizID: { type: Schema.Types.ObjectId, ref: "Quiz" }
+  answer: { type: String, required: false },
+  quiz: { type: Schema.Types.ObjectId, ref: "Quiz" }
 });
 
-const Question = mongoose.model("Book", questionSchema);
+const Question = mongoose.model("Question", questionSchema);
 
 module.exports = Question;
