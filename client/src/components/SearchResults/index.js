@@ -17,14 +17,17 @@ const SearchResults = () => {
         });
     };
 
+    // need to make this pretty
+    // button needs a redirect
     return (
         state.searchResults && state.searchResults.length ? (
             state.searchResults.map(quiz =>
-                <div>
+                <div key={quiz._id}>
                     <div>
                         <h3>{quiz.name}</h3>
                     </div>
                     <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
+                        Take
                     </button>
                 </div>
             )
