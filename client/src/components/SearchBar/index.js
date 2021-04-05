@@ -7,6 +7,7 @@ const SearchBar = () => {
     const subjectRef = useRef();
 
     const [state, dispatch] = useStateContext();
+    // this page may utilize local state better
 
     const searchQuiz = async (event) => {
         event.preventDefault();
@@ -14,6 +15,7 @@ const SearchBar = () => {
         console.log(subjectRef.current.value);
 
         const response = await API.getQuiz(subjectRef.current.value);
+        // I am not connecting to the db
         console.log(response);
         // add logic to parse data
 
