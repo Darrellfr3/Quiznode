@@ -5,6 +5,9 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import CreateQuiz from "./pages/CreateQuiz";
+import TakeQuiz from "./pages/TakeQuiz";
+import SignUp from "./pages/SignUp";
+import Search from "./pages/Search";
 
 function App() {
   return (
