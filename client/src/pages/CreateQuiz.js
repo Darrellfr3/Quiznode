@@ -2,8 +2,8 @@ import React, { Component, useState } from 'react';
 import { Button } from 'react-bootstrap';
 // import AddQuestionButton from '../components/CreateContainer/AddQuestionButton';
 import CreateButtons from '../components/CreateContainer/SaveButtons';
-import CreateContainer from '../components/CreateContainer/CreateContainer';
-import Question from '../components/CreateContainer/Question';
+import QuizForm from '../components/CreateContainer/QuizForm';
+import QuestionForm from '../components/CreateContainer/QuestionForm';
 import { useStateContext } from '../utils/GlobalState';
 import API from '../utils/API';
 
@@ -11,76 +11,72 @@ import API from '../utils/API';
 const CreateQuiz = () => {
 
     const [state, dispatch] = useStateContext();
+    const [quizName, setQuizName] = useState("");
+    const [quizSubject, setQuizSubject] = useState("Tech"); // Default value from QuizForm dropdown menu
     const [newQuestions, setNewQuestions] = useState([]);
 
-    // constructor() {
-
-        // super();
-        // state.questionID
-
-        // this.state = {
-        //     newQuestions: [
-        //         // {id: '', body: ''}
-        //     ],
-        //     body: "",
-        //     id: ""
-        // }
-    // }
-
     const deleteQuestion = (index) => {
-        const copyNewQuestionsArray = Object.assign([], this.state.newQuestions);
+        const copyNewQuestionsArray = Object.assign([], newQuestions);
         copyNewQuestionsArray.splice(index, 1);
-        this.setState({
-            newQuestions: copyNewQuestionsArray
-        })
+
+        setNewQuestions([...copyNewQuestionsArray]);
     }
 
-    let handleInputChange = (event, questionIndex) => {
-        console.log(event.target.value);
-        console.log(questionIndex);
-        
-        const mapNewQuestions = newQuestions.map((question, index) => {
+    let handleQuestionInputChange = (event, questionIndex) => {
+        newQuestions.forEach((question, index) => {
             if(questionIndex === index) {
-                question.title = event.target.value;
+                question.question = event.target.value;
             }
-            return question;
-        })
-        setNewQuestions(mapNewQuestions);
-
-            
+        });
+        setNewQuestions([...newQuestions]);
     }
 
-    const addQuestion = async () => {
+    let handleQuizNameInputChange = (event) => {
+        setQuizName(event.target.value);
+    }
 
+    let handleQuizSubjectInputChange = (event) => {
+        setQuizSubject(event.target.value);
+    }
+
+    const addQuestion = () => {
         setNewQuestions([...newQuestions, {
-            title: ""
+            question: "",
+            id: newQuestions.length + 1 + Date.now() // Generate a unique key so that React can keep track of array of questions
         }])
- 
-
     }
 
-    const submitQuiz = async () => {
-        const newCount = state.questionID + 1;
+    const submitQuiz = () => {
 
-        const newQuestion = {question: "What is the best pizza topping?", choiceA: "pepperoni", choiceB: "veggies", choiceC: "cheese", choiceD: "pineapple", answer: "veggies"}
+        const requestBody = {
+            quizName,
+            quizSubject,
+            questions: newQuestions
+        };
 
-        API.createQuestion(newQuestion).then(response => {
+        API.createQuiz(requestBody).then(response => {
             console.log(response.data);
         })
     }
 
         return (
             <div>
-                <CreateContainer />
+                <QuizForm 
+                    quizName={quizName}
+                    quizSubject={quizSubject}
+                    handleQuizNameInputChange={handleQuizNameInputChange}
+                    handleQuizSubjectInputChange={handleQuizSubjectInputChange}
+                />
                 {
                     newQuestions.map((question, index) => {
                         return (
-                            <Question
-                                key={question.title}
-                                deleteQuestion={deleteQuestion}
-                                index={index}
-                                handleInputChange={handleInputChange}
-                            />
+                                <QuestionForm
+                                    key={question.id}
+                                    deleteQuestion={deleteQuestion}
+                                    index={index}
+                                    question={question.question}
+                                    handleQuestionInputChange={handleQuestionInputChange}
+                                />
                         )
                     })
                 }
@@ -92,7 +88,7 @@ const CreateQuiz = () => {
                 >
                     + Add Question
                 </Button>
-                <CreateButtons />
+                <CreateButtons submitQuiz={submitQuiz}/>
             </div>
         )
     }
