@@ -32,6 +32,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 searchResults: action.searchResults,
+                currentQuestion: action.currentQuestion,
                 loading: false
             }
         default:
@@ -45,6 +46,7 @@ const initialState = {
         {name: "test2", _id: 2},
         {name: "test3", _id: 3}
     ],
+    questionID: 0,
     currentQuiz: {},
     currentQuestion: {
         _id: 0,
