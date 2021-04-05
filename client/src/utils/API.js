@@ -6,10 +6,6 @@ export default {
     getQuestions: (id) => {
         return axios.get(`/api/questions/${id}`);
     },
-    createQuestion: (question) => {
-        return axios.post("/api/questions", question);
-    },
-
     // quizz routes
     getQuiz: (id) => {
         return axios.get("/api/quizs");
@@ -17,7 +13,6 @@ export default {
     createQuiz: (quiz) => {
         return axios.post("/api/quizs", quiz);
     },
-
     // score routes
     createScore: (score) => {
         return axios.post("/api/scores", score);
