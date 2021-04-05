@@ -30,14 +30,38 @@ const Question = (props) => {
                         </InputGroup.Append>
                     </InputGroup>
 
-                    {/* <Form.Group controlId="correctAnswer" className="mb-3">
+                    <Form.Group controlId="correctAnswer" className="mb-3">
                         <Form.Control
                             type="input"
                             placeholder="Add Answer Here"
                             className={'qInput'}
-                            onChange={handleInputChange}
+                            onChange={props.handleInputChange}
                         />
-                    </Form.Group> */}
+                    </Form.Group>
+
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Radio aria-label="Radio button for Option A" />
+                        </InputGroup.Prepend>
+                        <FormControl aria-label="Text input with radio button" placeholder="Option A"/>
+                    </InputGroup><InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Radio aria-label="Radio button for Option B" />
+                        </InputGroup.Prepend>
+                        <FormControl aria-label="Text input with radio button" placeholder="Option B"/>
+                    </InputGroup><InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Radio aria-label="Radio button for Option C" />
+                        </InputGroup.Prepend>
+                        <FormControl aria-label="Text input with radio button" placeholder="Option C"/>
+                    </InputGroup>
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Radio aria-label="Radio button for Option D" />
+                        </InputGroup.Prepend>
+                        <FormControl aria-label="Text input with radio button" placeholder="Option D"/>
+                    </InputGroup>
+
                 </Form>
 
             </>
