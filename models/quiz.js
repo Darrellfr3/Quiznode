@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 const quizSchema = new Schema({
   name: { type: String, required: true },
   subject: { type: String, required: true },
-  userID: { type: Schema.Types.ObjectId, ref: "User" },
+  user: { type: Schema.Types.ObjectId, ref: "User" },
   questions: [{ type: Schema.Types.ObjectId, ref: "Question" }],
-  scoreID: [{ type: Schema.Types.ObjectId, ref: "Score" }]
+  scores: [{ type: Schema.Types.ObjectId, ref: "Score" }]
 });
 
 const Quiz = mongoose.model("Quiz", quizSchema);
