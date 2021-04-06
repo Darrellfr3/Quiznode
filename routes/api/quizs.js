@@ -4,7 +4,6 @@ const quizController = require("../../controllers/quizController");
 // Matches with "/api/quizs"
 router.route("/")
   .get(quizController.findAll)
-  .get(quizController.findSubject)
   .post(quizController.create);
 
 router.route("/:subject")

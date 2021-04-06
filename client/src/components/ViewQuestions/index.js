@@ -8,8 +8,14 @@ const ViewQuestions = () => {
 
     const count = state.questionsAnswered;
     console.log("count is :" + count);
-    console.log(state.currentQuiz);
+    console.log(state.currentQuiz._id);
     console.log(state.currentQuestion);
+
+    // TODO - add function to get the currentQuiz from the backend by Id from globalstate
+    const getQuiz = async (id) => {
+        const quiz = await API.getQuiz(id);
+        console.log(quiz);
+    };
 
     // use this to set active answer in GlobalState
     const makeActive = (value) => {
@@ -38,6 +44,11 @@ const ViewQuestions = () => {
             // currentQuestion: nextQuestion
         });
     };
+
+    // TODO - may need useEffect to call getQuiz on page load
+    useEffect(() => {
+        getQuiz(state.currentQuiz._id);
+    }, []);
 
     // TODO - pass in all info from db
     return (

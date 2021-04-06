@@ -9,6 +9,7 @@ const SearchResults = () => {
     console.log(state.searchResults);
 
     const takeQuiz = async (id) => {
+        console.log(id);
         const response = await API.getQuiz(id);
         console.log(response.data);
 
