@@ -5,24 +5,33 @@ const { Provider } = StateContext;
 
 const reducer = (state, action) => {
     switch (action.type) {
+        // change active answer to clicked answer
         case "activeAnswer":
             return {
                 ...state,
                 activeAnswer: action.activeAnswer,
                 loading: false
             }
-    // add cases here as needed
+        // set current quiz
         case "currentQuiz":
             return {
                 ...state,
                 currentQuiz: action.currentQuiz,
                 loading: false
             }
+        // update correct answers, total questions answered and the index of the current question
         case "updateScore":
             return {
                 ...state,
                 scoreCorrect: action.scoreCorrect,
                 questionsAnswered: action.questionsAnswered,
+                // currentQuestion: action.currentQuestion,
+                loading: false
+            }
+        case "searchQuiz":
+            return {
+                ...state,
+                searchResults: action.searchResults,
                 currentQuestion: action.currentQuestion,
                 loading: false
             }
@@ -32,9 +41,23 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
+    searchResults: [
+        {name: "test1", _id: 1},
+        {name: "test2", _id: 2},
+        {name: "test3", _id: 3}
+    ],
     questionID: 0,
     currentQuiz: {},
-    currentQuestion: {},
+    currentQuestion: {
+        _id: 0,
+        question: "Does this work?",
+        choiceA: "Yes",
+        choiceB: "No",
+        choiceC: "Maybe",
+        choiceD: "No idea",
+        answer: "a",
+        quizID: 1
+    },
     activeAnswer: "e",
 // add state keys as needed
     scoreCorrect: 0,
