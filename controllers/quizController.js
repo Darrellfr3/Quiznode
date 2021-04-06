@@ -16,6 +16,9 @@ module.exports = {
   },
   create: async function(req, res) {
     let {quizName, quizSubject, questions} = req.body;
+    console.log(quizName);
+    console.log(quizSubject);
+    console.log(questions);
 
     try {
       // Insert array of questions that user created from browser. Also, get all of their IDs. We will need when creating quiz.

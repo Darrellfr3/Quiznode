@@ -16,7 +16,7 @@ const SearchBar = () => {
 
         const response = await API.getQuiz(subjectRef.current.value);
         // I am not connecting to the db
-        console.log(response);
+        console.log(response.data);
         // add logic to parse data
 
         dispatch({
