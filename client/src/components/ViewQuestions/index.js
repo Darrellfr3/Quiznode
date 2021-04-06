@@ -1,20 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
 
 const ViewQuestions = () => {
 
+    // need global state to get the id for the current quiz
     const [state, dispatch] = useStateContext();
 
-    const count = state.questionsAnswered;
+    // use these to keep count and questions(array)
+    // count will be used to keep track of which question(index) the user is on
+    const [count, setCount] = useState(0);
+    const [questions, setQuestions] = useState([]);
+
+    // don't think any of this is needed
+    // const count = state.questionsAnswered;
     console.log("count is :" + count);
     console.log(state.currentQuiz._id);
     console.log(state.currentQuestion);
 
     // TODO - add function to get the currentQuiz from the backend by Id from globalstate
+    //      - set questions
     const getQuiz = async (id) => {
         const quiz = await API.getQuiz(id);
         console.log(quiz);
+        // may need to be quiz.questions
+        setQuestions(quiz);
+        console.log(questions);
     };
 
     // use this to set active answer in GlobalState
@@ -51,6 +62,7 @@ const ViewQuestions = () => {
     }, []);
 
     // TODO - pass in all info from db
+    //      - convert to question from local state
     return (
         <div className="container">
 

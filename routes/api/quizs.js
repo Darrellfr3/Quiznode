@@ -3,8 +3,12 @@ const quizController = require("../../controllers/quizController");
 
 // Matches with "/api/quizs"
 router.route("/")
-  .get(quizController.findAll)
+  // .get(quizController.findAll)
   .post(quizController.create);
+
+// added to get quiz by id
+router.route("/:id")
+  .get(quizController.findId);
 
 router.route("/:subject")
   .get(quizController.findSubject);
