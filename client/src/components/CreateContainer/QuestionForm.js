@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 import './Question.css';
 
+
 const Question = (props) => {
 
 
@@ -13,7 +14,7 @@ const Question = (props) => {
 
         return (
             <>
-                <Form>
+                <Form responsive className="newQuestion">
                     <InputGroup className="mb-3">
                         <FormControl
                             placeholder="Add Question Here"

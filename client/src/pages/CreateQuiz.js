@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import { Button } from 'react-bootstrap';
-// import AddQuestionButton from '../components/CreateContainer/AddQuestionButton';
 import CreateButtons from '../components/CreateContainer/SaveButtons';
 import QuizForm from '../components/CreateContainer/QuizForm';
 import QuestionForm from '../components/CreateContainer/QuestionForm';
@@ -69,7 +68,7 @@ const CreateQuiz = () => {
     }
 
         return (
-            <div>
+            <div className="questionForm">
                 <QuizForm 
                     quizName={quizName}
                     quizSubject={quizSubject}
