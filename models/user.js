@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  quizID: [{ type: Schema.Types.ObjectId, ref: "Quiz" }],
-  scoreID: [{ type: Schema.Types.ObjectId, ref: "Score" }]
+  quizs: [{ type: Schema.Types.ObjectId, ref: "Quiz" }],
+  scores: [{ type: Schema.Types.ObjectId, ref: "Score" }]
 });
 
 userSchema.pre("save", function (next) {
