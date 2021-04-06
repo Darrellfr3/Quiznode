@@ -2,8 +2,8 @@ const router = require("express").Router();
 const passport = require("passport");
 
 router.route("/")
-  .then(() => {
-    passport.authenticate("local", function(err, user, info) {
+  .then((req, res) => {
+    passport.authenticate("local", function(err, user) {
       if(err) {
         return res.status(400).json({ errors: err });
       }
