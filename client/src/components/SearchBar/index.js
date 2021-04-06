@@ -14,17 +14,12 @@ const SearchBar = () => {
 
         console.log(subjectRef.current.value);
 
-        const response = await API.getQuiz(subjectRef.current.value);
-        // I am not connecting to the db
+        const response = await API.getQuizSubject(subjectRef.current.value);
         console.log(response.data);
-        // add logic to parse data
 
         dispatch({
             type: "searchQuiz",
-            // hardcoded this to make sure it would work, switch out for response.data
-            searchResults: [{name: "test4", _id: 4},
-            {name: "test5", _id: 5},
-            {name: "test6", _id: 6}]
+            searchResults: response.data
         });
     }; 
  

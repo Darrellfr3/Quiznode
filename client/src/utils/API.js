@@ -10,6 +10,9 @@ export default {
     getQuiz: (id) => {
         return axios.get("/api/quizs");
     },
+    getQuizSubject: (subject) => {
+        return axios.get("/api/quizs/" + subject);
+    },
     createQuiz: (quiz) => {
         return axios.post("/api/quizs", quiz);
     },
