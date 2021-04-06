@@ -29,18 +29,6 @@ function App() {
 
           <Route exact path="/createQuiz"component={CreateQuiz} />
 
-          {/* <Route exact path="/logout" component={Logout} />
-
-            {/* <Route exact path="/logout" component={Logout} />
-
-          
-
-          <Route exact path="/takeQuiz" component={TakeQuiz} />
- 
-          <Route exact path="/createQuestion" component={CreateQuestion} />
-
-            <Route component={NoMatch} /> */}
-
           </Switch>
         </div>
       </StateProvider>

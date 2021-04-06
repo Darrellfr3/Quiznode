@@ -3,14 +3,11 @@ import { useStateContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
 
 const ViewQuestions = () => {
-    // TODO - stuff to get questions for a specific quiz
-    //      - use state to get either current quiz info or maybe quiz id to make call to backend
+
     const [state, dispatch] = useStateContext();
 
-    // TODO - use count and currentQuestion to display questions
-    //      - need to make sure this will work, may need to save count to state
     const count = state.questionsAnswered;
-    console.log(count);
+    console.log("count is :" + count);
     console.log(state.currentQuiz);
     console.log(state.currentQuestion);
 
@@ -28,10 +25,6 @@ const ViewQuestions = () => {
 
         let questionsAnswered = state.questionsAnswered + 1;
         let newScore = state.scoreCorrect;
-        let newCount = count + 1;
-        console.log(newCount);
-        // let nextQuestion = state.currentQuiz.questionID[newCount];
-        console.log("active answer is " + state.activeAnswer);
 
         if (state.activeAnswer === state.currentQuestion.answer) {
             newScore += 1;
@@ -44,8 +37,6 @@ const ViewQuestions = () => {
             questionsAnswered: questionsAnswered,
             // currentQuestion: nextQuestion
         });
-
-        console.log("your score is: " + state.scoreCorrect);
     };
 
     // TODO - pass in all info from db
