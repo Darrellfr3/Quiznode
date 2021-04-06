@@ -40,26 +40,14 @@ const Question = (props) => {
                     </Form.Group>
 
                     <InputGroup>
-                        <InputGroup.Prepend>
-                            <InputGroup.Radio aria-label="Radio button for Option A" />
-                        </InputGroup.Prepend>
-                        <FormControl aria-label="Text input with radio button" placeholder="Option A"/>
+                        <FormControl aria-label="Text input for Option A" placeholder="Option A"/>
                     </InputGroup><InputGroup>
-                        <InputGroup.Prepend>
-                            <InputGroup.Radio aria-label="Radio button for Option B" />
-                        </InputGroup.Prepend>
-                        <FormControl aria-label="Text input with radio button" placeholder="Option B"/>
+                        <FormControl aria-label="Text input for Option B" placeholder="Option B"/>
                     </InputGroup><InputGroup>
-                        <InputGroup.Prepend>
-                            <InputGroup.Radio aria-label="Radio button for Option C" />
-                        </InputGroup.Prepend>
-                        <FormControl aria-label="Text input with radio button" placeholder="Option C"/>
+                        <FormControl aria-label="Text input for Option C" placeholder="Option C"/>
                     </InputGroup>
                     <InputGroup>
-                        <InputGroup.Prepend>
-                            <InputGroup.Radio aria-label="Radio button for Option D" />
-                        </InputGroup.Prepend>
-                        <FormControl aria-label="Text input with radio button" placeholder="Option D"/>
+                        <FormControl aria-label="Text input for Option D" placeholder="Option D"/>
                     </InputGroup>
 
                 </Form>
