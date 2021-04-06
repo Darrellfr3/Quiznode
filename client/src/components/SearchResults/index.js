@@ -11,7 +11,6 @@ const SearchResults = () => {
     const takeQuiz = async (id) => {
         const response = await API.getQuiz(id);
         console.log(response.data);
-        // response.data seems to be some sort of html page
 
         dispatch({
             type: "currentQuiz",

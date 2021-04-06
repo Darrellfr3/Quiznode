@@ -10,7 +10,7 @@ module.exports = {
   },
   findSubject: function(req, res) {
     db.Quiz
-      .find({subject: req.query})
+      .find({subject: req.params.subject})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
