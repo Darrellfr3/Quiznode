@@ -1,3 +1,7 @@
 .mb-3 .qInput {
     border: 1px solid rgba(255, 0, 0, 0.767);
 }
+
+.mb-3 {
+  margin-top: 20px;
+}

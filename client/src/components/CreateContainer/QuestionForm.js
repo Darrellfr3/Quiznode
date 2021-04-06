@@ -31,14 +31,26 @@ const Question = (props) => {
                         </InputGroup.Append>
                     </InputGroup>
 
-                    {/* <Form.Group controlId="correctAnswer" className="mb-3">
+                    <Form.Group controlId="correctAnswer" className="mb-3">
                         <Form.Control
                             type="input"
                             placeholder="Add Answer Here"
                             className={'qInput'}
-                            onChange={handleInputChange}
+                            onChange={props.handleInputChange}
                         />
-                    </Form.Group> */}
+                    </Form.Group>
+
+                    <InputGroup>
+                        <FormControl aria-label="Text input for Option A" placeholder="Option A"/>
+                    </InputGroup><InputGroup>
+                        <FormControl aria-label="Text input for Option B" placeholder="Option B"/>
+                    </InputGroup><InputGroup>
+                        <FormControl aria-label="Text input for Option C" placeholder="Option C"/>
+                    </InputGroup>
+                    <InputGroup>
+                        <FormControl aria-label="Text input for Option D" placeholder="Option D"/>
+                    </InputGroup>
+
                 </Form>
 
             </>
