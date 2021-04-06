@@ -1,17 +1,17 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-function CreateContainer() {
+function CreateContainer(props) {
   return (
     <>
       <Form>
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label><h2>Name Your Quiz</h2></Form.Label>
-          <Form.Control size="lg" type="text" placeholder="Cool Quiz" />
+          <Form.Control size="lg" type="text" placeholder="Cool Quiz" onChange={props.handleQuizNameInputChange}/>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label><h3>Subject</h3></Form.Label>
-          <Form.Control as="select">
+          <Form.Control as="select" onChange={props.handleQuizSubjectInputChange}>
             <option>Tech</option>
             <option>History</option>
             <option>Grammar</option>

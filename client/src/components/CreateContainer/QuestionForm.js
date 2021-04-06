@@ -20,7 +20,8 @@ const Question = (props) => {
                             aria-label="Add Question Here"
                             aria-describedby="basic-addon2"
                             className={'qInput'}
-                            onChange={event => props.handleInputChange(event, props.index)}
+                            value={props.question}
+                            onChange={event => props.handleQuestionInputChange(event, props.index)}
                         />
                         <InputGroup.Append>
                             <Button
