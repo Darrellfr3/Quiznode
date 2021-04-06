@@ -23,9 +23,12 @@ const CreateQuiz = () => {
     }
 
     let handleQuestionInputChange = (event, questionIndex) => {
+        const name = event.target.name;
+        console.log(name);
+
         newQuestions.forEach((question, index) => {
             if(questionIndex === index) {
-                question.question = event.target.value;
+                question[name] = event.target.value;
             }
         });
         setNewQuestions([...newQuestions]);
@@ -42,6 +45,11 @@ const CreateQuiz = () => {
     const addQuestion = () => {
         setNewQuestions([...newQuestions, {
             question: "",
+            choiceA: "",
+            choiceB: "",
+            choiceC: "",
+            choiceD: "",
+            answer: "",
             id: newQuestions.length + 1 + Date.now() // Generate a unique key so that React can keep track of array of questions
         }])
     }
@@ -53,6 +61,7 @@ const CreateQuiz = () => {
             quizSubject,
             questions: newQuestions
         };
+        console.log(requestBody);
 
         API.createQuiz(requestBody).then(response => {
             console.log(response.data);
@@ -74,7 +83,7 @@ const CreateQuiz = () => {
                                     key={question.id}
                                     deleteQuestion={deleteQuestion}
                                     index={index}
-                                    question={question.question}
+                                    question={question}
                                     handleQuestionInputChange={handleQuestionInputChange}
                                 />
                         )

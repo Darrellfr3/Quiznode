@@ -20,7 +20,8 @@ const Question = (props) => {
                             aria-label="Add Question Here"
                             aria-describedby="basic-addon2"
                             className={'qInput'}
-                            value={props.question}
+                            name="question"
+                            value={props.question.question}
                             onChange={event => props.handleQuestionInputChange(event, props.index)}
                         />
                         <InputGroup.Append>
@@ -36,19 +37,36 @@ const Question = (props) => {
                             type="input"
                             placeholder="Add Answer Here"
                             className={'qInput'}
-                            onChange={props.handleInputChange}
+                            name="answer"
+                            value={props.question.answer}
+                            onChange={event => props.handleQuestionInputChange(event, props.index)}
                         />
                     </Form.Group>
 
                     <InputGroup>
-                        <FormControl aria-label="Text input for Option A" placeholder="Option A"/>
+                        <FormControl aria-label="Text input for Option A" 
+                            placeholder="Option A" 
+                            name="choiceA"
+                            value={props.question.choiceA}
+                            onChange={event => props.handleQuestionInputChange(event, props.index)}/>
                     </InputGroup><InputGroup>
-                        <FormControl aria-label="Text input for Option B" placeholder="Option B"/>
+                        <FormControl aria-label="Text input for Option B" 
+                            placeholder="Option B" 
+                            name="choiceB"
+                            value={props.question.choiceB}
+                            onChange={event => props.handleQuestionInputChange(event, props.index)}/>
                     </InputGroup><InputGroup>
-                        <FormControl aria-label="Text input for Option C" placeholder="Option C"/>
-                    </InputGroup>
-                    <InputGroup>
-                        <FormControl aria-label="Text input for Option D" placeholder="Option D"/>
+                        <FormControl aria-label="Text input for Option C" 
+                            placeholder="Option C" 
+                            name="choiceC"
+                            value={props.question.choiceC}
+                            onChange={event => props.handleQuestionInputChange(event, props.index)}/>
+                    </InputGroup><InputGroup>
+                        <FormControl aria-label="Text input for Option D" 
+                            placeholder="Option D" 
+                            name="choiceD"
+                            value={props.question.choiceD}
+                            onChange={event => props.handleQuestionInputChange(event, props.index)}/>
                     </InputGroup>
 
                 </Form>

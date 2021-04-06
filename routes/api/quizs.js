@@ -7,6 +7,9 @@ router.route("/")
   .get(quizController.findSubject)
   .post(quizController.create);
 
+router.route("/:subject")
+  .get(quizController.findSubject);
+
 // Matches with "/api/quizs/:id"
 // router
 //   .route("/:id")
