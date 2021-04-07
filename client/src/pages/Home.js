@@ -1,19 +1,50 @@
 import React from 'react';
-import Header from "../components/Header/Header";
+import Footer from "../components/footer"
+import {Row, Col, Button} from "react-bootstrap";
+import Navbar from '../components/navbar';
+import { BrowserRouter as Router} from 'react-router-dom';
+
+
+
+
 
 function Home() {
     return (
+        <Router>
+        <div className="userHome">
 
-        <div>
-            <Header />
+            <Navbar/>
             <h2>User Page</h2>
-            <div class="nodecircle">
-      <div id="nodecircle1"></div>
-      <div id="nodecircle2"></div>
-      <div id="nodecircle3"></div>
-      <div id="nodecircle4"></div>
-    </div>
+                    
+            <Row>
+            <Col>
+            <div id="nodecircle1">
+          <h3> Build a Quiz</h3>
+          <Button>Build Me</Button>
+          </div>
+          </Col>
+
+            <Col>
+            <div id="nodecircle1">
+          <h3> Take a Quiz</h3>
+          <Button>Take Me</Button>
+          </div>
+            </Col>
+
+            <Col>
+            <div id="nodecircle1">
+          <h3> PreGenerated Quiz </h3>
+          <Button>Generate Me</Button>
+          </div>
+          </Col>
+      
+
+          </Row>
+   
+          <Footer/>
         </div>
+        </Router>
+        
     )
 }
 
