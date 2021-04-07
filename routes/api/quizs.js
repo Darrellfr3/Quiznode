@@ -7,10 +7,11 @@ router.route("/")
   .post(quizController.create);
 
 // added to get quiz by id
-router.route("/:id")
+router.route("/id/:id")
   .get(quizController.findId);
 
-router.route("/:subject")
+// find quizzes by subject
+router.route("/subject/:subject")
   .get(quizController.findSubject);
 
 // Matches with "/api/quizs/:id"

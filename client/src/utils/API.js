@@ -9,10 +9,10 @@ export default {
     // quiz routes
     // this gets quiz by id now
     getQuiz: (id) => {
-        return axios.get("/api/quizs/" + id);
+        return axios.get("/api/quizs/id/" + id);
     },
     getQuizSubject: (subject) => {
-        return axios.get("/api/quizs/" + subject);
+        return axios.get("/api/quizs/subject/" + subject);
     },
     createQuiz: (quiz) => {
         return axios.post("/api/quizs", quiz);

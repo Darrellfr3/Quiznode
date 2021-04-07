@@ -6,26 +6,28 @@ const ViewQuestions = () => {
 
     // need global state to get the id for the current quiz
     const [state, dispatch] = useStateContext();
+    console.log(state.currentQuiz);
 
     // use these to keep count and questions(array)
     // count will be used to keep track of which question(index) the user is on
     const [count, setCount] = useState(0);
-    const [questions, setQuestions] = useState([]);
+    const [questionsId, setQuestionsId] = useState([]);
+    const [currentQuestion, setCurrentQuestion] = useState({});
 
-    // don't think any of this is needed
-    // const count = state.questionsAnswered;
-    console.log("count is :" + count);
-    console.log(state.currentQuiz._id);
-    console.log(state.currentQuestion);
-
-    // TODO - add function to get the currentQuiz from the backend by Id from globalstate
-    //      - set questions
+    // get quiz from db and set questions to state
     const getQuiz = async (id) => {
+        // get quiz info from db
         const quiz = await API.getQuiz(id);
-        console.log(quiz);
-        // may need to be quiz.questions
-        setQuestions(quiz);
-        console.log(questions);
+        // set array of question ids
+        setQuestionsId(quiz.data[0].questions);
+        // set initial question
+        getQuestion(quiz.data[0].questions[count])
+    };
+
+    // get question from db and set to state
+    const getQuestion = async (id) => {
+        const question = await API.getQuestions(id);
+        setCurrentQuestion(question.data[0]);
     };
 
     // use this to set active answer in GlobalState
@@ -36,52 +38,40 @@ const ViewQuestions = () => {
         });
     };
 
-    // TODO - make this actually do something
+    // TODO - keep track of score
+    //      - end page when all questions are answered
     const submitAnswer = () => {
         console.log("submit clicked");
 
-        let questionsAnswered = state.questionsAnswered + 1;
-        let newScore = state.scoreCorrect;
-
-        if (state.activeAnswer === state.currentQuestion.answer) {
-            newScore += 1;
-            console.log("You answered correctly")
-        };
-        
-        dispatch({
-            type: "updateScore",
-            scoreCorrect: newScore,
-            questionsAnswered: questionsAnswered,
-            // currentQuestion: nextQuestion
-        });
+        const updateCount = count + 1;
+        // add check to make sure there are more questions
+        setCount(updateCount);
+        getQuestion(questionsId[updateCount]);
     };
 
-    // TODO - may need useEffect to call getQuiz on page load
     useEffect(() => {
-        getQuiz(state.currentQuiz._id);
+        getQuiz(state.currentQuiz);
     }, []);
 
-    // TODO - pass in all info from db
-    //      - convert to question from local state
     return (
         <div className="container">
 
             <div className="row">
-                <h1>Quiz Name- currentQuiz.name</h1>
+                <h1>{currentQuestion.name}</h1>
             </div>
 
             <div className="row">
-                <h3>{state.currentQuestion.question}</h3>
+                <h3>{currentQuestion.question}</h3>
             </div>
 
             <div className="row justify-content-evenly">
                 <div className="col-md-6">
-                    { state.activeAnswer === "a" ? <p id="a" className="text-danger">{state.currentQuestion.choiceA}</p> : <p id="a" onClick={() => {makeActive("a")}}>{state.currentQuestion.choiceA}</p> }
-                    { state.activeAnswer === "c" ? <p id="c" className="text-danger">{state.currentQuestion.choiceC}</p> : <p id="c" onClick={() => {makeActive("c")}}>{state.currentQuestion.choiceC}</p> }
+                    { state.activeAnswer === "a" ? <p id="a" className="text-danger">{currentQuestion.choiceA}</p> : <p id="a" onClick={() => {makeActive("a")}}>{currentQuestion.choiceA}</p> }
+                    { state.activeAnswer === "c" ? <p id="c" className="text-danger">{currentQuestion.choiceC}</p> : <p id="c" onClick={() => {makeActive("c")}}>{currentQuestion.choiceC}</p> }
                 </div>
                 <div className="col-md-6">
-                    { state.activeAnswer === "b" ? <p id="b" className="text-danger">{state.currentQuestion.choiceB}</p> : <p id="b" onClick={() => {makeActive("b")}}>{state.currentQuestion.choiceB}</p> }
-                    { state.activeAnswer === "d" ? <p id="d" className="text-danger">{state.currentQuestion.choiceD}</p> : <p id="d" onClick={() => {makeActive("d")}}>{state.currentQuestion.choiceD}</p> }
+                    { state.activeAnswer === "b" ? <p id="b" className="text-danger">{currentQuestion.choiceB}</p> : <p id="b" onClick={() => {makeActive("b")}}>{currentQuestion.choiceB}</p> }
+                    { state.activeAnswer === "d" ? <p id="d" className="text-danger">{currentQuestion.choiceD}</p> : <p id="d" onClick={() => {makeActive("d")}}>{currentQuestion.choiceD}</p> }
                 </div>
             </div>
 

@@ -23,11 +23,11 @@ function App() {
 
             <Route exact path="/takeQuiz" component={TakeQuiz} />
 
-          <Route exact path="/SignUp"component={SignUp} />
+            <Route exact path="/SignUp"component={SignUp} />
 
-          <Route exact path="/search" component={Search} />
+            <Route exact path="/search" component={Search} />
 
-          <Route exact path="/createQuiz"component={CreateQuiz} />
+            <Route exact path="/createQuiz" component={CreateQuiz} />
 
           </Switch>
         </div>

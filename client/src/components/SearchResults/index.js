@@ -5,22 +5,25 @@ import { useStateContext } from "../../utils/GlobalState";
 const SearchResults = () => {
 
     const [state, dispatch] = useStateContext();
+    // why is this not holding the currentQuiz
+    console.log(state.currentQuiz);
 
     console.log(state.searchResults);
 
     const takeQuiz = async (id) => {
         console.log(id);
+        // may not need this
         const response = await API.getQuiz(id);
         console.log(response.data);
 
         dispatch({
             type: "currentQuiz",
-            currentQuiz: response.data 
+            currentQuiz: id
         });
     };
 
-    // need to make this pretty
-    // button needs a redirect
+    // TODO - need to make this pretty
+    //      - button needs a redirect
     return (
         state.searchResults && state.searchResults.length ? (
             state.searchResults.map(quiz =>
@@ -28,9 +31,11 @@ const SearchResults = () => {
                     <div>
                         <h3>{quiz.name}</h3>
                     </div>
-                    <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
-                        Take
-                    </button>
+                    <a >
+                        <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
+                            Take
+                        </button>
+                    </a>
                 </div>
             )
         ) : (
