@@ -5,6 +5,7 @@ import QuizForm from '../components/CreateContainer/QuizForm';
 import QuestionForm from '../components/CreateContainer/QuestionForm';
 import { useStateContext } from '../utils/GlobalState';
 import API from '../utils/API';
+import '../components/CreateContainer/Question.css';
 
 // class CreateQuiz extends Component {
 const CreateQuiz = () => {
@@ -78,6 +79,7 @@ const CreateQuiz = () => {
                 {
                     newQuestions.map((question, index) => {
                         return (
+                            
                                 <QuestionForm
                                     key={question.id}
                                     deleteQuestion={deleteQuestion}
@@ -89,14 +91,17 @@ const CreateQuiz = () => {
                     })
                 }
                 <Button
-                    variant="success"
+                    variant="dark"
                     size="lg"
                     block
                     onClick={addQuestion}
+                    className="addQuestionBtn"
                 >
                     + Add Question
                 </Button>
-                <CreateButtons submitQuiz={submitQuiz}/>
+                <CreateButtons 
+                className="saveBtns"
+                submitQuiz={submitQuiz}/>
             </div>
         )
     }

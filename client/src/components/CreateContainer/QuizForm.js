@@ -10,8 +10,8 @@ function CreateContainer(props) {
     <>
       <Form>
         <Form.Group controlId="exampleForm.ControlInput1">
-          <Form.Label><h2>Name Your Quiz</h2></Form.Label>
-          <Form.Control size="lg" type="text" placeholder="Cool Quiz" onChange={props.handleQuizNameInputChange}/>
+          <Form.Label ><h2>Name Your Quiz</h2></Form.Label>
+          <Form.Control className="allInputs" size="lg" type="text" placeholder="Cool Quiz" onChange={props.handleQuizNameInputChange}/>
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlSelect1">
           <Form.Label><h3>Subject</h3></Form.Label>

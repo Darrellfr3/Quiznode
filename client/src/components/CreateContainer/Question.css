@@ -1,15 +1,20 @@
+body {
+  
+}
+
 .mb-3 .qInput {
     border: 1px solid rgba(255, 0, 0, 0.767);
 }
 
 .mb-3 {
   margin-top: 20px;
+  opacity: 1;
 }
 
 .questionForm {
-  width: 350px !important;
+  width: 75% !important;
       position: fixed;
-      padding: 15px;
+      padding: 35px;
       top: 50%;
       left: 50%;
       /* bring your own prefixes */
@@ -19,25 +24,71 @@
       -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000;
+   max-height: 80%;
+   overflow: scroll;
+   overflow-x:hidden;
+   scrollbar-color: transparent;
 }
 
+::-webkit-scrollbar {
+  display: none;
+  }
+
 .newQuestion {
-  display:grid;
-  align-items: center;
-  justify-content: center;
+  margin: 0px 10px 16px 10px;
+  width: 75%;
+  transform: translate(15%, 0%);
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  /* background-color:rgba(255, 255, 255, 0.199); */
+  background-color:rgba(248, 248, 255, 0.247);
+  padding: 1rem;  
+  border-radius: 25px;
 }
-/* class="form-control" */
 
 .form-control-menu {
   transition: filter 200ms !important;
 }
 
 .form-control-menu:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 
 .dropdown {
   top: 58px !important;
   position: absolute !important;
   color: red !important;
+}
+
+#correctAnswer {
+  margin-top: -18px;
+}
+
+.allInputs {
+  transition: filter 200ms !important;
+}
+
+.allInputs:hover {
+  filter: brightness(1.1);
+}
+
+.qInput {
+  transition: filter 200ms !important;
+}
+
+.qInput:hover {
+  filter: brightness(1.1);
+}
+
+.addQuestionBtn {
+  margin-bottom: 1rem;
+}
+
+.questionForm .saveBtns {
+  display: inline-flex;
+  justify-content:space-around;
+  align-items: center;
+  /* margin-left: 50%; */
 }

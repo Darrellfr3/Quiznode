@@ -1,13 +1,14 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import './Question.css';
 
 function CreateButtons(props) {
     return (
         <>
-            <Button variant="warning" size="lg" href="/">
+            <Button variant="warning" size="lg" href="/" className="saveBtns">
                 Cancel
             </Button>{' '}
-            <Button variant="primary" size="lg" onClick={props.submitQuiz}>
+            <Button variant="success" size="lg" onClick={props.submitQuiz} className="saveBtns">
                 Save Quiz
             </Button>
         </>
