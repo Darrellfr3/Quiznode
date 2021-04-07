@@ -6,11 +6,11 @@ const ViewQuestions = () => {
 
     // need global state to get the id for the current quiz
     const [state, dispatch] = useStateContext();
-    console.log(state.currentQuiz);
 
     // use these to keep count and questions(array)
     // count will be used to keep track of which question(index) the user is on
     const [count, setCount] = useState(0);
+    const [correct, setCorrect] = useState(0);
     const [questionsId, setQuestionsId] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState({});
 
@@ -38,13 +38,23 @@ const ViewQuestions = () => {
         });
     };
 
-    // TODO - keep track of score
-    //      - end page when all questions are answered
+    // TODO - end page when all questions are answered
     const submitAnswer = () => {
         console.log("submit clicked");
 
+        // get current answer from dom
+        let answer = document.getElementById(state.activeAnswer).textContent;
+  
+        // if answer is correct update correct
+        if (answer === currentQuestion.answer) {
+            const newCorrect = correct + 1;
+            setCorrect(newCorrect);
+        }
+
+        // write check to see if all questions have been answered
+        // if no- update page with next question
+        // if yes- redirect to score or home
         const updateCount = count + 1;
-        // add check to make sure there are more questions
         setCount(updateCount);
         getQuestion(questionsId[updateCount]);
     };
