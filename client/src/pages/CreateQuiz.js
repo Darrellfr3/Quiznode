@@ -1,11 +1,13 @@
 import React, { Component, useState } from 'react';
 import { Button } from 'react-bootstrap';
-// import AddQuestionButton from '../components/CreateContainer/AddQuestionButton';
 import CreateButtons from '../components/CreateContainer/SaveButtons';
 import QuizForm from '../components/CreateContainer/QuizForm';
 import QuestionForm from '../components/CreateContainer/QuestionForm';
 import { useStateContext } from '../utils/GlobalState';
 import API from '../utils/API';
+import '../components/CreateContainer/Question.css';
+import Navbar from "../components/navbar";
+import Footer from "../components/footer"
 
 // class CreateQuiz extends Component {
 const CreateQuiz = () => {
@@ -69,7 +71,10 @@ const CreateQuiz = () => {
     }
 
         return (
-            <div>
+            <>
+            <Navbar />
+            <div className="questionForm">
+                
                 <QuizForm 
                     quizName={quizName}
                     quizSubject={quizSubject}
@@ -79,6 +84,7 @@ const CreateQuiz = () => {
                 {
                     newQuestions.map((question, index) => {
                         return (
+                            
                                 <QuestionForm
                                     key={question.id}
                                     deleteQuestion={deleteQuestion}
@@ -90,15 +96,21 @@ const CreateQuiz = () => {
                     })
                 }
                 <Button
-                    variant="success"
+                    variant="dark"
                     size="lg"
                     block
                     onClick={addQuestion}
+                    className="addQuestionBtn"
                 >
                     + Add Question
                 </Button>
-                <CreateButtons submitQuiz={submitQuiz}/>
+                <CreateButtons 
+                className="saveBtns"
+                submitQuiz={submitQuiz}/>
+                
             </div>
+            <Footer />
+            </>
         )
     }
 // }

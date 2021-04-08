@@ -262,6 +262,106 @@ footer {
     cursor: pointer !important;
 }
 
+#quiznodemain {
+    font-family: "Changa", sans-serif;
+    font-size: 6rem;
+    text-shadow: 0px 0px 15px rgb(131, 131, 131);
+    color: white;
+  }
+  
+  .node-container {
+    position: relative;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    -webkit-animation: fadeIn ease 10s;
+    animation-fill-mode: forwards;
+    
+  }
+  
+  .node-container2 {
+    position: absolute;
+  }
+  
+  .nodecircle {
+    position:relative;
+    right: 1.95rem;
+    top: 1.4rem;
+  }
+  
+  #nodecircle1 {
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    background-color: orange;
+    border-radius: 50%;
+    bottom:33px;
+    left: 307px;
+    opacity: 0.9;
+    box-shadow: 2px 0px 8px rgb(255, 255, 255);
+    // box-shadow: 0 0 0 0 rgb(255, 255, 255);
+	transform: scale(0.7);
+	animation: pulse 10s infinite;
+
+    @keyframes pulse {
+        0% {
+            transform: scale(0.97);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+        }
+    
+        70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+        }
+    
+        100% {
+            transform: scale(0.97);
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+    }
+    @keyframes glow {
+        40% {
+          text-shadow: 0 0 8px #fff;
+        }
+      }
+  }
+  
+  #nodecircle2 {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: purple;
+    border-radius: 50%;
+    bottom:38px;
+    left: 312px;
+    background: linear-gradient(90deg, purple, rgba(196, 83, 196, 0.856));
+  }
+  
+  #nodecircle3 {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    /* background-color: purple; */
+    border-radius: 50%;
+    bottom:45px;
+    left: 320px;
+    background: linear-gradient(135deg, green, rgb(11, 189, 11));
+  }
+  
+  #nodecircle4 {
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    /* background-color: purple; */
+    border-radius: 50%;
+    bottom:68px;
+    left: 343px;
+    border-style: none;
+    opacity: 0.1;
+    background: linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    box-shadow: 0px 0px 10px white;
+  }
+
 
 
 

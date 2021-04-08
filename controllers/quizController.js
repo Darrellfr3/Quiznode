@@ -8,6 +8,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  // need to add this to get quiz by id
+  // may need to do a populate, check Calvin's code for the create
+  findId: function (req, res) {
+    db.Quiz
+      .find({_id: req.params.id})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findSubject: function(req, res) {
     db.Quiz
       .find({subject: req.params.subject})

@@ -8,6 +8,7 @@ function Landing() {
     return ReactDOM.render(
       <React.Fragment>
         <Navbar />
+        
       </React.Fragment>, document.getElementById('root'));
 }
 
