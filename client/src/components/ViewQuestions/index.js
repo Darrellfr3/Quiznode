@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useStateContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
+import "./viewQuestions.css";
 
 const ViewQuestions = () => {
 
     // need global state to get the id for the current quiz
     const [state, dispatch] = useStateContext();
 
-    // use these to keep count and questions(array)
     // count will be used to keep track of which question(index) the user is on
     const [count, setCount] = useState(0);
     const [correct, setCorrect] = useState(0);
@@ -51,10 +51,14 @@ const ViewQuestions = () => {
             setCorrect(newCorrect);
         }
 
-        // write check to see if all questions have been answered
-        // if no- update page with next question
-        // if yes- redirect to score or home
         const updateCount = count + 1;
+
+        // redirect if all questions answered
+        if (updateCount === questionsId.length) {
+            console.log("all done");
+            window.location = "/home";
+        }
+
         setCount(updateCount);
         getQuestion(questionsId[updateCount]);
     };
@@ -64,28 +68,36 @@ const ViewQuestions = () => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container questionForm">
 
-            <div className="row">
-                <h1>{currentQuestion.name}</h1>
+            <div className="row justify-content-center">
+                <h2>{currentQuestion.question}</h2>
             </div>
 
-            <div className="row">
-                <h3>{currentQuestion.question}</h3>
-            </div>
-
-            <div className="row justify-content-evenly">
+            <div className="row justify-content-center">
                 <div className="col-md-6">
-                    { state.activeAnswer === "a" ? <p id="a" className="text-danger">{currentQuestion.choiceA}</p> : <p id="a" onClick={() => {makeActive("a")}}>{currentQuestion.choiceA}</p> }
-                    { state.activeAnswer === "c" ? <p id="c" className="text-danger">{currentQuestion.choiceC}</p> : <p id="c" onClick={() => {makeActive("c")}}>{currentQuestion.choiceC}</p> }
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            { state.activeAnswer === "a" ? <p id="a" className="text-warning">{currentQuestion.choiceA}</p> : <p id="a" onClick={() => {makeActive("a")}}>{currentQuestion.choiceA}</p> }
+                        </div>
+                        <div className="row justify-content-center">
+                            { state.activeAnswer === "c" ? <p id="c" className="text-warning">{currentQuestion.choiceC}</p> : <p id="c" onClick={() => {makeActive("c")}}>{currentQuestion.choiceC}</p> }
+                        </div>
+                    </div>
                 </div>
                 <div className="col-md-6">
-                    { state.activeAnswer === "b" ? <p id="b" className="text-danger">{currentQuestion.choiceB}</p> : <p id="b" onClick={() => {makeActive("b")}}>{currentQuestion.choiceB}</p> }
-                    { state.activeAnswer === "d" ? <p id="d" className="text-danger">{currentQuestion.choiceD}</p> : <p id="d" onClick={() => {makeActive("d")}}>{currentQuestion.choiceD}</p> }
+                    <div className="container">
+                        <div className="row justify-content-center">
+                            { state.activeAnswer === "b" ? <p id="b" className="text-warning">{currentQuestion.choiceB}</p> : <p id="b" onClick={() => {makeActive("b")}}>{currentQuestion.choiceB}</p> }
+                        </div>
+                        <div className="row justify-content-center">
+                            { state.activeAnswer === "d" ? <p id="d" className="text-warning">{currentQuestion.choiceD}</p> : <p id="d" onClick={() => {makeActive("d")}}>{currentQuestion.choiceD}</p> }
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="row">
+            <div className="row justify-content-center">
                 <button type="button" className="btn btn-primary" onClick={submitAnswer}>
                     <i className="fas fa-search">Submit Answer</i>
                 </button>
