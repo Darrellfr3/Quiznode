@@ -11,11 +11,6 @@ const SearchResults = () => {
     console.log(state.searchResults);
 
     const takeQuiz = async (id) => {
-        console.log(id);
-        // may not need this
-        // const response = await API.getQuiz(id);
-        // console.log(response.data);
-
         dispatch({
             type: "currentQuiz",
             currentQuiz: id
@@ -27,19 +22,23 @@ const SearchResults = () => {
     return (
         state.searchResults && state.searchResults.length ? (
             state.searchResults.map(quiz =>
-                <div key={quiz._id}>
-                    <div>
-                        <h3>{quiz.name}</h3>
+                <div key={quiz._id} className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-md-6">
+                            <h3>{quiz.name}</h3>
+                        </div>
+                        <div className="col-md-6">
+                            <a href="/takeQuiz">
+                                <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
+                                    Take
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                    <a href="/takeQuiz">
-                        <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
-                            Take
-                        </button>
-                    </a>
                 </div>
             )
         ) : (
-            <div>
+            <div className="container">
                 <h4>Search for a subject to see matching quizzes.</h4>
             </div>
         )

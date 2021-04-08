@@ -6,6 +6,7 @@ const ViewQuestions = () => {
 
     // need global state to get the id for the current quiz
     const [state, dispatch] = useStateContext();
+    console.log(state.searchResults);
     console.log(state.currentQuiz);
 
     // use these to keep count and questions(array)
@@ -52,13 +53,9 @@ const ViewQuestions = () => {
             setCorrect(newCorrect);
         }
 
-
-        // write check to see if all questions have been answered
-        // if no- update page with next question
-        // if yes- redirect to score or home
         const updateCount = count + 1;
 
-        // TODO - add break/redirect
+        // redirect if all questions answered
         if (updateCount === questionsId.length) {
             console.log("all done");
             window.location = "/home";

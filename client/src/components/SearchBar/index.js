@@ -7,10 +7,9 @@ const SearchBar = () => {
     const subjectRef = useRef();
 
     const [state, dispatch] = useStateContext();
+    console.log(state.searchResults);
 
     const searchQuiz = async (event) => {
-        // don't need event here
-        event.preventDefault();
 
         console.log("Search for " + subjectRef.current.value);
 
@@ -25,10 +24,10 @@ const SearchBar = () => {
  
     return (
         <div className="container">
-            <div className="row">
+            <div className="row justify-content-center">
                 <h3>Search for quizzes by category.</h3>
             </div>
-            <div className="row">
+            <div className="row justify-content-left">
                 <div className="input-group">
                     <div className="col-md-8">
                         <div className="form-outline">
