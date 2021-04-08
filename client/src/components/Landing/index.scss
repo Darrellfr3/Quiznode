@@ -285,20 +285,20 @@ footer {
   
   .nodecircle {
     position:relative;
-    left: 0.3rem;
-    top: 0.3rem;
+    right: 1.95rem;
+    top: 1.4rem;
   }
   
   #nodecircle1 {
     position: absolute;
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     background-color: orange;
     border-radius: 50%;
     bottom:33px;
     left: 307px;
     opacity: 0.9;
-    box-shadow: 10px 2px 8px rgb(255, 255, 255);
+    box-shadow: 2px 0px 8px rgb(255, 255, 255);
     // box-shadow: 0 0 0 0 rgb(255, 255, 255);
 	transform: scale(0.7);
 	animation: pulse 10s infinite;
@@ -328,8 +328,8 @@ footer {
   
   #nodecircle2 {
     position: absolute;
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     background-color: purple;
     border-radius: 50%;
     bottom:38px;
@@ -339,8 +339,8 @@ footer {
   
   #nodecircle3 {
     position: absolute;
-    height: 45px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
     /* background-color: purple; */
     border-radius: 50%;
     bottom:45px;
@@ -350,8 +350,8 @@ footer {
   
   #nodecircle4 {
     position: absolute;
-    height: 15px;
-    width: 15px;
+    height: 5px;
+    width: 5px;
     /* background-color: purple; */
     border-radius: 50%;
     bottom:68px;
