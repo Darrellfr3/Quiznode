@@ -1,5 +1,4 @@
 import React from "react";
-import API from "../../utils/API";
 import { useStateContext } from "../../utils/GlobalState";
 
 const SearchResults = () => {
