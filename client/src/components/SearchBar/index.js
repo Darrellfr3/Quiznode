@@ -7,7 +7,6 @@ const SearchBar = () => {
     const subjectRef = useRef();
 
     const [state, dispatch] = useStateContext();
-    console.log(state.searchResults);
 
     const searchQuiz = async (event) => {
 
