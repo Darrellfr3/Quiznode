@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useStateContext } from "../../utils/GlobalState";
 
 const SearchResults = () => {
@@ -27,11 +28,11 @@ const SearchResults = () => {
                             <h3>{quiz.name}</h3>
                         </div>
                         <div className="col-md-6">
-                            <a href="/takeQuiz">
+                            <Link to="/takeQuiz">
                                 <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
                                     Take
                                 </button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
