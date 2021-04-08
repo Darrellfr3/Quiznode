@@ -24,7 +24,7 @@ const SearchResults = () => {
                         </div>
                         <div className="col-md-6">
                             <Link to="/takeQuiz">
-                                <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
+                                <button className="btn btn-success" onClick={() => {takeQuiz(quiz._id)}}>
                                     Take
                                 </button>
                             </Link>
