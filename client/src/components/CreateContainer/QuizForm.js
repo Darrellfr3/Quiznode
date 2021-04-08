@@ -20,7 +20,7 @@ function CreateContainer(props) {
           className="form-control-menu"
           onClick={() => setOpen(!open)}>
             {/* <div> */}
-            <option className="dropdown">Tech</option>
+            <option className="dropdown1">Tech</option>
             <option>History</option>
             <option>Grammar</option>
             <option>Arithmetic</option>
