@@ -8,6 +8,8 @@ import CreateQuiz from "./pages/CreateQuiz";
 import TakeQuiz from "./pages/TakeQuiz";
 import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
+import QuizGen from "./pages/QuizGen"
+
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route exact path="/search" component={Search} />
 
             <Route exact path="/createQuiz" component={CreateQuiz} />
+            
+            <Route exact path="/QuizGen" component={QuizGen} />
 
           </Switch>
         </div>
