@@ -20,6 +20,7 @@ const reducer = (state, action) => {
                 loading: false
             }
         // update correct answers, total questions answered and the index of the current question
+        // don't need this
         case "updateScore":
             return {
                 ...state,
@@ -44,7 +45,7 @@ const reducer = (state, action) => {
 const initialState = {
     searchResults: [],
     questionID: 0,
-    currentQuiz: "606df250dd165518bcab54b1",
+    currentQuiz: "",
     currentQuestion: {
         _id: 0,
         question: "Does this work?",

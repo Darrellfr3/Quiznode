@@ -9,6 +9,7 @@ const SearchBar = () => {
     const [state, dispatch] = useStateContext();
 
     const searchQuiz = async (event) => {
+        // don't need event here
         event.preventDefault();
 
         console.log("Search for " + subjectRef.current.value);
