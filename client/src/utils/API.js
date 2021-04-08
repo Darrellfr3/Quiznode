@@ -34,5 +34,13 @@ export default {
     },
     createUser: (user) => {
         return axios.post("/api/users", user);
+    },
+
+    // auth Routes
+    auth: (user) => {
+        return axios.get(`/api/auth/`, user);
+    },
+    logout: (req) => {
+        return axios.get(`/api/logout/`, req);
     }
 };
