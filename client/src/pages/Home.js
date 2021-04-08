@@ -1,8 +1,11 @@
 import React from 'react';
 import Footer from "../components/footer"
-import {Row, Col, Button} from "react-bootstrap";
+import {Row, Col, Button, Container} from "react-bootstrap";
 import Navbar from '../components/navbar';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, Link} from 'react-router-dom';
+import './userHome.css';
+
+
 
 
 
@@ -11,38 +14,42 @@ import { BrowserRouter as Router} from 'react-router-dom';
 function Home() {
     return (
         <Router>
-        <div className="userHome">
-
-            <Navbar/>
-            <h2>User Page</h2>
-                    
-            <Row>
-            <Col>
-            <div id="nodecircle1">
+        <Navbar/>  
+        <Container>
+            <Row >
+            <Col className="quizcontainer1">
+            
           <h3> Build a Quiz</h3>
-          <Button>Build Me</Button>
-          </div>
+          <p>Build a custom quiz with your own Q's {`&`} A's</p>
+          <Link to="/createQuiz">
+          <Button size="lg" block>Build Quiz</Button>{' '}
+          </Link>
+
           </Col>
 
-            <Col>
-            <div id="nodecircle1">
+            <Col className="quizcontainer1">
+           
           <h3> Take a Quiz</h3>
-          <Button>Take Me</Button>
-          </div>
+          <p>Take a quiz that you've built previously.</p>
+          <Link to="/search">
+          <Button size="lg" block>Take Quiz</Button>
+          </Link>
             </Col>
 
-            <Col>
-            <div id="nodecircle1">
-          <h3> PreGenerated Quiz </h3>
-          <Button>Generate Me</Button>
-          </div>
+            <Col className="quizcontainer1">
+         
+          <h3> Pregenerated Quiz </h3>
+          <p>Take a quiz that's been pregenerated.</p>
+          <Link to="/quizGen">
+          <Button size="lg" block>Load Quiz</Button>
+          </Link>
           </Col>
       
 
           </Row>
-   
+          </Container>
           <Footer/>
-        </div>
+     
         </Router>
         
     )
