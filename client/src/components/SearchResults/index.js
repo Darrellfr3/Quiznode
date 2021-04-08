@@ -13,8 +13,8 @@ const SearchResults = () => {
     const takeQuiz = async (id) => {
         console.log(id);
         // may not need this
-        const response = await API.getQuiz(id);
-        console.log(response.data);
+        // const response = await API.getQuiz(id);
+        // console.log(response.data);
 
         dispatch({
             type: "currentQuiz",
@@ -31,7 +31,7 @@ const SearchResults = () => {
                     <div>
                         <h3>{quiz.name}</h3>
                     </div>
-                    <a >
+                    <a href="/takeQuiz">
                         <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
                             Take
                         </button>
