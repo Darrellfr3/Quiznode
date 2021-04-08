@@ -6,6 +6,8 @@ import QuestionForm from '../components/CreateContainer/QuestionForm';
 import { useStateContext } from '../utils/GlobalState';
 import API from '../utils/API';
 import '../components/CreateContainer/Question.css';
+import Navbar from "../components/navbar";
+import Footer from "../components/footer"
 
 // class CreateQuiz extends Component {
 const CreateQuiz = () => {
@@ -69,7 +71,10 @@ const CreateQuiz = () => {
     }
 
         return (
+            <>
+            <Navbar />
             <div className="questionForm">
+                
                 <QuizForm 
                     quizName={quizName}
                     quizSubject={quizSubject}
@@ -102,7 +107,10 @@ const CreateQuiz = () => {
                 <CreateButtons 
                 className="saveBtns"
                 submitQuiz={submitQuiz}/>
+                
             </div>
+            <Footer />
+            </>
         )
     }
 // }
