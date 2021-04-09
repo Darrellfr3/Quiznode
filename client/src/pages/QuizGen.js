@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css'
 import App from '../components/QuizGen/App/index';
 import '../components/Landing/index.scss';
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbarx";
 import Footer from "../components/footer";
 
 

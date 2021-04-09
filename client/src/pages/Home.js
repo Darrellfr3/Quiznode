@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from "../components/footer"
 import {Row, Col, Button, Container} from "react-bootstrap";
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbarx';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
 import './userHome.css';
 

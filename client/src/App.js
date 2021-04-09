@@ -8,7 +8,7 @@ import CreateQuiz from "./pages/CreateQuiz";
 import TakeQuiz from "./pages/TakeQuiz";
 import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
-// import QuizGen from "./pages/QuizGen"
+import QuizGen from "./pages/QuizGen"
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
 
             <Route exact path="/createQuiz" component={CreateQuiz} />
             
-            {/* <Route exact path="/QuizGen" component={QuizGen} /> */}
+            <Route exact path="/QuizGen" component={QuizGen} />
 
           </Switch>
         </div>
