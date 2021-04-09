@@ -19,15 +19,7 @@ const reducer = (state, action) => {
                 currentQuiz: action.currentQuiz,
                 loading: false
             }
-        // update correct answers, total questions answered and the index of the current question
-        case "updateScore":
-            return {
-                ...state,
-                scoreCorrect: action.scoreCorrect,
-                questionsAnswered: action.questionsAnswered,
-                // currentQuestion: action.currentQuestion,
-                loading: false
-            }
+        // set searchResults and currentQuestion
         case "searchQuiz":
             return {
                 ...state,
@@ -43,17 +35,8 @@ const reducer = (state, action) => {
 const initialState = {
     searchResults: [],
     questionID: 0,
-    currentQuiz: "606df250dd165518bcab54b1",
-    currentQuestion: {
-        _id: 0,
-        question: "Does this work?",
-        choiceA: "Yes",
-        choiceB: "No",
-        choiceC: "Maybe",
-        choiceD: "No idea",
-        answer: "a",
-        quizID: 1
-    },
+    currentQuiz: "",
+    currentQuestion: {},
     activeAnswer: "e",
     scoreCorrect: 0,
     questionsAnswered: 0,

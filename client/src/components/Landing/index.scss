@@ -70,8 +70,7 @@ body{
 }
 
 .navbar {
-  overflow: hidden !important;
-  background-color: #333 !important;
+  background-color: rgb(56, 56, 56) !important;
   position: fixed !important; /* Set the navbar to fixed position */
   top: 0 !important; /* Position the navbar at the top of the page */
   width: 100% !important;
@@ -87,6 +86,8 @@ float: right;
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
+        overflow-x: scroll;
+        overflow-y: visible;
 }
 
 .float-right{
@@ -262,6 +263,7 @@ footer {
     cursor: pointer !important;
 }
 
+
 #quiznodemain {
     font-family: "Changa", sans-serif;
     font-size: 6rem;
@@ -276,8 +278,42 @@ footer {
     margin-bottom: 2.5rem;
     -webkit-animation: fadeIn ease 10s;
     animation-fill-mode: forwards;
-    
   }
+
+  @media only screen and (max-width: 612px) {       
+      .node-container #quiznodemain{
+          font-size: 3.5rem;
+      }
+
+
+      .node-container #nodecircle1{
+        height: 50px;
+        width: 50px;
+    }
+
+    .node-container #nodecircle2{
+        height: 40px;
+        width: 40px;
+    }
+
+    .node-container #nodecircle3{
+        height: 25px;
+        width: 25px;
+    }
+
+  }
+
+  @media only screen and (max-width: 420px) {       
+    .node-container #quiznodemain{
+        font-size: 1rem;
+    }
+
+    .node-container .nodecircle{
+      height: 50%;
+      width: 50%;
+  }
+
+}
   
   .node-container2 {
     position: absolute;
@@ -285,8 +321,8 @@ footer {
   
   .nodecircle {
     position:relative;
-    right: 1.95rem;
-    top: 1.4rem;
+    left: -1.9rem;
+    top: 1.3rem;
   }
   
   #nodecircle1 {
@@ -361,6 +397,7 @@ footer {
     background: linear-gradient(135deg, rgb(255, 255, 255), rgb(255, 255, 255));
     box-shadow: 0px 0px 10px white;
   }
+
 
 
 
@@ -541,4 +578,16 @@ footer {
 .topnav-right {
     padding-left: 65rem !important;
   }
+
+  .dd-list {
+    top: 90%;
+    background: #ff9c00;
+    width: 70px;
+}
+.dd-toggle {
+    position: relative;
+    background: grey;
+    line-height: 40px;
+}
+
   
