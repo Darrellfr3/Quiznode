@@ -54,6 +54,7 @@ function Home() {
 
               <Button size="lg" block href="/quizGen">Load Quiz</Button>
 
+
             </Col>
 
 

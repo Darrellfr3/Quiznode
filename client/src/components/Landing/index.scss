@@ -277,7 +277,7 @@ footer {
     justify-content: center;
     margin-bottom: 2.5rem;
     -webkit-animation: fadeIn ease 10s;
-    animation-fill-mode: forwards;
+    // animation-fill-mode: forwards;
   }
 
   @media only screen and (max-width: 612px) {       
@@ -324,6 +324,10 @@ footer {
     left: -1.9rem;
     top: 1.3rem;
   }
+
+  .close .ml-2 .mb-1 span {
+      display: none !important;
+  }
   
   #nodecircle1 {
     position: absolute;
@@ -360,6 +364,26 @@ footer {
           text-shadow: 0 0 8px #fff;
         }
       }
+  }
+
+  .toast-header {
+      background-color:rgba(252, 186, 46, 0.877) !important;
+      color: rgb(236, 236, 236) !important;
+      font-size: 16px !important;
+  }
+
+  .mr-auto {
+    margin-right: 0 !important;
+    text-align: center !important;
+  }
+
+  .col-6 {
+    display: inline-flex;
+    justify-content: flex-end;
+    text-align: center;
+    margin: auto !important;
+    padding-left: 50px !important;
+    margin-left: 30px !important;
   }
   
   #nodecircle2 {
