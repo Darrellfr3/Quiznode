@@ -15,7 +15,7 @@ export default function navbarx () {
           </DropdownToggle>
           <DropdownMenu className="dd-toggle">
             <DropdownItem className="dd-list" tag="a" href="/QuizGen" active>Quiz Generator</DropdownItem>
-            <DropdownItem className="dd-list" tag="a" href="/createQuiz" active>Creat a Quiz</DropdownItem>
+            <DropdownItem className="dd-list" tag="a" href="/createQuiz" active>Create a Quiz</DropdownItem>
             <DropdownItem className="dd-list" tag="a" href="/Search" active>Search</DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>

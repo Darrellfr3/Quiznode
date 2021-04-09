@@ -71,6 +71,10 @@ const CreateQuiz = () => {
     }
 
         return (
+            <div id="my-background" className="background">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
             <>
             <Navbar />
             <div className="questionForm">
@@ -111,6 +115,7 @@ const CreateQuiz = () => {
             </div>
             <Footer />
             </>
+            </div>
         )
     }
 // }

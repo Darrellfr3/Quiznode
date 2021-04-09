@@ -8,10 +8,15 @@ import "../components/SearchBar/search.css"
 const Search = () => {
 
     return (
-        <div>
-            <Navbar />
-            <SearchBar />
-            <Footer />
+        <div id="my-background" className="background">
+            <div id="stars"></div>
+            <div id="stars2"></div>
+            <div id="stars3"></div>
+            <div>
+                <Navbar />
+                <SearchBar />
+                <Footer />
+            </div>
         </div>
     );
 };
