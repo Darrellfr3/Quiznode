@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Toast, Col, Spinner, ToastHeader } from 'react-bootstrap';
 import CreateButtons from '../components/CreateContainer/SaveButtons';
 import QuizForm from '../components/CreateContainer/QuizForm';
 import QuestionForm from '../components/CreateContainer/QuestionForm';
@@ -16,6 +16,7 @@ const CreateQuiz = () => {
     const [quizName, setQuizName] = useState("");
     const [quizSubject, setQuizSubject] = useState("Tech"); // Default value from QuizForm dropdown menu
     const [newQuestions, setNewQuestions] = useState([]);
+    const [showA, setShowA] = useState(true);
 
     const deleteQuestion = (index) => {
         const copyNewQuestionsArray = Object.assign([], newQuestions);
@@ -68,7 +69,15 @@ const CreateQuiz = () => {
         API.createQuiz(requestBody).then(response => {
             console.log(response.data);
         })
+
+        setShowA(!showA);
+        setTimeout(function(){
+            window.location = "/home";
+           }, 2500);
+        
     }
+
+    // const toggleShowA = () => setShowA(!showA);
 
         return (
             <div id="my-background" className="background">
@@ -111,6 +120,21 @@ const CreateQuiz = () => {
                 <CreateButtons 
                 className="saveBtns"
                 submitQuiz={submitQuiz}/>
+                        <Col xs={6}>
+                            <Toast show={!showA} onClose={submitQuiz}>
+                                <Toast.Header closeButton={false}>
+                                    <img
+                                        src="holder.js/20x20?text=%20"
+                                        className="rounded mr-2"
+                                        alt=""
+                                    />
+                                    <strong className="mr-auto">Quiz successfully saved. W00t!</strong>
+                                    <Spinner animation="border" role="status">
+                                        <span className="sr-only">Loading...</span>
+                                    </Spinner>
+                                </Toast.Header>
+                            </Toast>
+                        </Col>
                 
             </div>
             <Footer />
