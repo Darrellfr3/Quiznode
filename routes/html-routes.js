@@ -44,6 +44,11 @@ module.exports = function(app) {
         res.render("takeQuiz");
     });
 
+     // directs to page where a quiz can be taken
+     app.get("/quizgen", function(req, res) {
+        res.render("QuizGen");
+    });
+
     app.get("/createQuestion", function(req, res) {
         res.render("createQuestion")
     })
