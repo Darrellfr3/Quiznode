@@ -276,8 +276,42 @@ footer {
     margin-bottom: 2.5rem;
     -webkit-animation: fadeIn ease 10s;
     animation-fill-mode: forwards;
-    
   }
+
+  @media only screen and (max-width: 612px) {       
+      .node-container #quiznodemain{
+          font-size: 3.5rem;
+      }
+
+
+      .node-container #nodecircle1{
+        height: 50px;
+        width: 50px;
+    }
+
+    .node-container #nodecircle2{
+        height: 40px;
+        width: 40px;
+    }
+
+    .node-container #nodecircle3{
+        height: 25px;
+        width: 25px;
+    }
+
+  }
+
+  @media only screen and (max-width: 420px) {       
+    .node-container #quiznodemain{
+        font-size: 1rem;
+    }
+
+    .node-container .nodecircle{
+      height: 50%;
+      width: 50%;
+  }
+
+}
   
   .node-container2 {
     position: absolute;
@@ -285,8 +319,8 @@ footer {
   
   .nodecircle {
     position:relative;
-    right: 1.95rem;
-    top: 1.4rem;
+    right: -0.6rem;
+    top: 0.4rem;
   }
   
   #nodecircle1 {
