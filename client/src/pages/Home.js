@@ -52,7 +52,8 @@ function Home() {
               <h3> Pregenerated Quiz </h3>
               <p>Take a quiz that's been pregenerated.</p>
 
-              <Button size="lg" block href="/quizgen">Load Quiz</Button>
+              <Button size="lg" block href="/quizGen">Load Quiz</Button>
+
 
             </Col>
 
