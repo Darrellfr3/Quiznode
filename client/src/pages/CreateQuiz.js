@@ -6,7 +6,7 @@ import QuestionForm from '../components/CreateContainer/QuestionForm';
 import { useStateContext } from '../utils/GlobalState';
 import API from '../utils/API';
 import '../components/CreateContainer/Question.css';
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbarx";
 import Footer from "../components/footer"
 
 // class CreateQuiz extends Component {

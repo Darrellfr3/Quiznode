@@ -3,7 +3,7 @@ import '../components/Login/style.css';
 import '../components/Landing/index.scss';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Login from "./Login"
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbarx";
 import Footer from "../components/footer"
 
 

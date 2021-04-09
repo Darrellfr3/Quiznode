@@ -3,7 +3,7 @@ import '../components/Login/style.css';
 import '../components/Landing/index.scss';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SignUp from "./SignUp"
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbarx";
 import Footer from "../components/footer"
 
 function Login() {
