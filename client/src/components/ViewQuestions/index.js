@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useStateContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
 import "./viewQuestions.css";
+import "../Landing/index.scss"
+
 
 const ViewQuestions = () => {
 
@@ -76,29 +78,36 @@ const ViewQuestions = () => {
     }, []);
 
     return (
+        <div id="my-background" className="background">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
         <div className="container questionForm">
 
-            <div className="row justify-content-center">
+            <div className="row QnA justify-content-center">
                 <h2>{currentQuestion.question}</h2>
             </div>
 
-            <div className="row justify-content-center">
+            <div className="row QnA justify-content-center">
                 <div className="col-md-6">
                     <div className="container">
-                        <div className="row justify-content-center">
+                        <div tabindex="1" className="row answer1 justify-content-center">
                             { state.activeAnswer === "a" ? <p id="a" className="text-warning">{currentQuestion.choiceA}</p> : <p id="a" onClick={() => {makeActive("a")}}>{currentQuestion.choiceA}</p> }
                         </div>
-                        <div className="row justify-content-center">
+                        <br />
+                        <div tabindex="1" className="row answer1 justify-content-center">
                             { state.activeAnswer === "c" ? <p id="c" className="text-warning">{currentQuestion.choiceC}</p> : <p id="c" onClick={() => {makeActive("c")}}>{currentQuestion.choiceC}</p> }
                         </div>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="container">
-                        <div className="row justify-content-center">
+                        <div tabindex="1" className="row answer1 justify-content-center">
                             { state.activeAnswer === "b" ? <p id="b" className="text-warning">{currentQuestion.choiceB}</p> : <p id="b" onClick={() => {makeActive("b")}}>{currentQuestion.choiceB}</p> }
                         </div>
-                        <div className="row justify-content-center">
+                        <br />
+
+                        <div tabindex="1" className="row answer1 justify-content-center">
                             { state.activeAnswer === "d" ? <p id="d" className="text-warning">{currentQuestion.choiceD}</p> : <p id="d" onClick={() => {makeActive("d")}}>{currentQuestion.choiceD}</p> }
                         </div>
                     </div>
@@ -106,7 +115,7 @@ const ViewQuestions = () => {
             </div>
 
             { count !== questionsId.length -1 ? (
-                <div className="row justify-content-center">
+                <div className="row QnA justify-content-center">
                     <button type="button" className="btn btn-primary" onClick={submitAnswer}>
                         <i className="fas fa-search">Submit Answer</i>
                     </button>
@@ -120,6 +129,7 @@ const ViewQuestions = () => {
                     </Link>
                 </div>
             )}
+        </div>
         </div>
     );
 };

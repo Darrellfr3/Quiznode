@@ -93,3 +93,20 @@
     align-items: center;
     /* margin-left: 50%; */
   }
+
+  .answer1 {
+    background-color: rgb(194, 193, 185);
+    border-radius: 500rem;
+    text-align: center;
+    text-align: center;
+    vertical-align: middle !important;
+  }
+
+  .QnA{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+div:focus {
+    background-color:rgb(193, 200, 214);
+}
