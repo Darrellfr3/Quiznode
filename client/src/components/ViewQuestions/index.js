@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useStateContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
 import "./viewQuestions.css";
@@ -56,7 +57,14 @@ const ViewQuestions = () => {
         // redirect if all questions answered
         if (updateCount === questionsId.length) {
             console.log("all done");
-            window.location = "/home";
+
+            dispatch({
+                type: "setScore",
+                scoreCorrect: correct,
+                questionsAnswered: updateCount
+            })
+            // this will reset state
+            // window.location = "/home";
         }
 
         setCount(updateCount);
@@ -97,12 +105,21 @@ const ViewQuestions = () => {
                 </div>
             </div>
 
-            <div className="row justify-content-center">
-                <button type="button" className="btn btn-primary" onClick={submitAnswer}>
-                    <i className="fas fa-search">Submit Answer</i>
-                </button>
-            </div>
-
+            { count !== questionsId.length -1 ? (
+                <div className="row justify-content-center">
+                    <button type="button" className="btn btn-primary" onClick={submitAnswer}>
+                        <i className="fas fa-search">Submit Answer</i>
+                    </button>
+                </div>
+                ) : (
+                <div className="row justify-content-center">
+                    <Link to="/score">
+                        <button type="button" className="btn btn-primary" onClick={submitAnswer}>
+                            <i className="fas fa-search">Submit Answer and See Score</i>
+                        </button>
+                    </Link>
+                </div>
+            )}
         </div>
     );
 };

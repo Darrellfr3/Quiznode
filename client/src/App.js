@@ -9,6 +9,7 @@ import TakeQuiz from "./pages/TakeQuiz";
 import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
 import QuizGen from "./pages/QuizGen"
+import Score from "./pages/Score";
 
 
 function App() {
@@ -32,6 +33,8 @@ function App() {
             <Route exact path="/createQuiz" component={CreateQuiz} />
             
             <Route exact path="/QuizGen" component={QuizGen} />
+
+            <Route exact path="/score" component={Score} />
 
           </Switch>
         </div>
