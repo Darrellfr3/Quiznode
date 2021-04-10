@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import API from '../utils/API';
 import Login from "./Login"
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbarx";
 import Footer from "../components/footer"
 
 

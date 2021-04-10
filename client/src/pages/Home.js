@@ -1,50 +1,69 @@
 import React from 'react';
 import Footer from "../components/footer"
-import {Row, Col, Button} from "react-bootstrap";
-import Navbar from '../components/navbar';
-import { BrowserRouter as Router} from 'react-router-dom';
+
+import {Row, Col, Button, Container} from "react-bootstrap";
+import Navbar from '../components/navbarx';
+import { BrowserRouter as Router, Link} from 'react-router-dom';
+
+import './userHome.css';
+import '../components/Landing/index.scss';
+
+
 
 
 
 
 
 function Home() {
-    return (
-        <Router>
-        <div className="userHome">
+  return (
+    
+    <div id="my-background" className="background">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <Router>
+        <Navbar />
 
-            <Navbar/>
-            <h2>User Page</h2>
-                    
-            <Row>
-            <Col>
-            <div id="nodecircle1">
-          <h3> Build a Quiz</h3>
-          <Button>Build Me</Button>
-          </div>
-          </Col>
+        <Container>
 
-            <Col>
-            <div id="nodecircle1">
-          <h3> Take a Quiz</h3>
-          <Button>Take Me</Button>
-          </div>
+          <Row >
+            <Col className="quizcontainer1">
+
+              <h3> Build a Quiz</h3>
+              <p>Build a custom quiz with your own Q's {`&`} A's</p>
+
+              <Button size="lg" block href="/createQuiz">Build Quiz</Button>{' '}
+
+
             </Col>
 
-            <Col>
-            <div id="nodecircle1">
-          <h3> PreGenerated Quiz </h3>
-          <Button>Generate Me</Button>
-          </div>
-          </Col>
-      
+            <Col className="quizcontainer1">
+
+              <h3> Take a Quiz</h3>
+              <p>Take a quiz that you've built previously.</p>
+
+              <Button size="lg" block href="/search">Take Quiz</Button>
+
+
+            </Col>
+
+            <Col className="quizcontainer1">
+
+              <h3> Pregenerated Quiz </h3>
+              <p>Take a quiz that's been pregenerated.</p>
+
+              <Button size="lg" block href="/quizGen">Load Quiz</Button>
+
+
+            </Col>
+
 
           </Row>
-   
-          <Footer/>
-        </div>
-        </Router>
-        
+        </Container>
+        <Footer />
+
+      </Router>
+      </div>
     )
 }
 

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import '../components/Login/style.css';
 import '../components/Landing/index.scss';
-import { Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect, useLocation } from 'react-router-dom';
-import ReactDOM, { render } from "react-dom";
-import API from '../utils/API';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SignUp from "./SignUp";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbarx";
 import Footer from "../components/footer";
+import API from '../utils/API';
 
 function Login() {
 

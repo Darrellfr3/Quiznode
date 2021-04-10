@@ -1,21 +1,12 @@
 import React from "react";
-import API from "../../utils/API";
+import { Link } from "react-router-dom";
 import { useStateContext } from "../../utils/GlobalState";
 
 const SearchResults = () => {
 
     const [state, dispatch] = useStateContext();
-    // why is this not holding the currentQuiz
-    console.log(state.currentQuiz);
 
-    console.log(state.searchResults);
-
-    const takeQuiz = async (id) => {
-        console.log(id);
-        // may not need this
-        const response = await API.getQuiz(id);
-        console.log(response.data);
-
+    const takeQuiz = (id) => {
         dispatch({
             type: "currentQuiz",
             currentQuiz: id
@@ -23,23 +14,26 @@ const SearchResults = () => {
     };
 
     // TODO - need to make this pretty
-    //      - button needs a redirect
     return (
         state.searchResults && state.searchResults.length ? (
             state.searchResults.map(quiz =>
-                <div key={quiz._id}>
-                    <div>
-                        <h3>{quiz.name}</h3>
+                <div key={quiz._id} className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-md-6">
+                            <h3>{quiz.name}</h3>
+                        </div>
+                        <div className="col-md-6">
+                            <Link to="/takeQuiz">
+                                <button className="btn btn-success" onClick={() => {takeQuiz(quiz._id)}}>
+                                    Take
+                                </button>
+                            </Link>
+                        </div>
                     </div>
-                    <a >
-                        <button className="btn btn-primary" onClick={() => {takeQuiz(quiz._id)}}>
-                            Take
-                        </button>
-                    </a>
                 </div>
             )
         ) : (
-            <div>
+            <div className="container">
                 <h4>Search for a subject to see matching quizzes.</h4>
             </div>
         )

@@ -1,11 +1,17 @@
 import React from "react";
 // TODO - import components
 import ViewQuestions from "../components/ViewQuestions";
+import Navbar from "../components/navbarx";
+import Footer from "../components/footer";
 
 const TakeQuiz = () => {
 
     return (
-        <ViewQuestions />
+        <div>
+            <Navbar />
+            <ViewQuestions />
+            <Footer />
+        </div>
     )
 };
 

@@ -1,5 +1,5 @@
-body {
-  
+#root {
+  background: radial-gradient(ellipse at bottom, #491d7c 0%, #104568 100%);
 }
 
 .mb-3 .qInput {
@@ -56,7 +56,7 @@ body {
   filter: brightness(1.1);
 }
 
-.dropdown {
+.dropdown1 {
   top: 58px !important;
   position: absolute !important;
   color: red !important;

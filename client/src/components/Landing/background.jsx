@@ -14,11 +14,6 @@ export default class Background extends React.Component {
 				<div id="stars2"></div>
 				<div id="stars3"></div>
 				<div className="top-container flex">
-					<h1>
-						Quiznode
-						<br />
-						One great quiz can change the world.
-					</h1>
 				</div>
 			</div>
 		);
