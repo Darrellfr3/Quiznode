@@ -17,10 +17,8 @@ passport.use(new LocalStrategy(
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
       else if (!user.comparePassword(password)) {
-        return done(null, false, {
-          message: "Incorrect password."
-        });
-      }
+        return done(null, err, { message: "Incorrect password."});
+      };
       // If none of the above, return the user
       return done(null, user);
     });

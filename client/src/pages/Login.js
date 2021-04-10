@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import '../components/Login/style.css';
 import '../components/Landing/index.scss';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 import SignUp from "./SignUp";
 import Navbar from "../components/navbarx";
 import Footer from "../components/footer";
@@ -11,6 +12,7 @@ function Login() {
 
     const [userName, setUserName] = useState("");
     const [userPassword, setUserPassword] = useState("");
+    const history = useHistory();
 
     let handleUserNameInputChange = event => {
       setUserName(event.target.value);
@@ -25,13 +27,7 @@ function Login() {
         username: userName,
         password: userPassword
       };
-      API.authUser(UserSubmit).then(() => {
-        return (
-          render(<Redirect to={{
-            pathname: "/home"
-          }}/>)
-        );
-      });
+      API.authUser(UserSubmit).then(history.push("/home"));
     };
 
     return (
