@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../components/Login/style.css';
 import '../components/Landing/index.scss';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import SignUp from "./SignUp"
+import { Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
+import SignUp from "./SignUp";
 import Navbar from "../components/navbarx";
-import Footer from "../components/footer"
+import Footer from "../components/footer";
+import API from '../utils/API';
 
 function Login() {
+
+    const [userName, setUserName] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    const history = useHistory();
+
+    let handleUserNameInputChange = event => {
+      setUserName(event.target.value);
+    };
+    let handleUserPasswordInputChange = event => {
+      setUserPassword(event.target.value);
+    };
+
+    const submitUserForm = event => {
+      event.preventDefault();
+      const UserSubmit = {
+        username: userName,
+        password: userPassword
+      };
+      const validate = false;
+      API.authUser(UserSubmit).then(history.push("/home"));
+    };
+
     return (
       <Router>
         <Navbar />
@@ -21,15 +45,31 @@ function Login() {
   
           <div className="form-group">
               <label>Username</label>
-              <input type="email" className="form-control" placeholder="Enter Username" />
+              <input 
+                value={userName}
+                onChange={handleUserNameInputChange}
+                type="username" 
+                className="form-control" 
+                placeholder="Enter Username" 
+              />
           </div>
   
           <div className="form-group">
               <label>Password</label>
-              <input type="password" className="form-control" placeholder="Enter password" />
+              <input 
+                value={userPassword}
+                onChange={handleUserPasswordInputChange}
+                type="password" 
+                className="form-control" 
+                placeholder="Enter password" 
+              />
           </div>
   
-          <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+          <Button 
+            type="submit"
+            onClick={submitUserForm} 
+            className="btn btn-dark btn-lg btn-block">Sign in
+          </Button>
           <p className="forgot-password text-right">
           <Link onClick={() => {window.location.href="/SignUp"}} className="nav-link">SignUp</Link>
           <Switch>

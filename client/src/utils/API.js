@@ -32,7 +32,15 @@ export default {
     findUser: (username) => {
         return axios.get(`/api/users/${username}`);
     },
-    createUser: (user) => {
-        return axios.post("/api/users", user);
+    createUser: (username, password) => {
+        return axios.post("/api/users", username, password);
+    },
+
+    // auth Routes
+    authUser: (username, password) => {
+        return axios.post("/api/auth/", username, password);
+    },
+    logoutUser: (req) => {
+        return axios.get("/api/logout/", req);
     }
 };
