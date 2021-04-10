@@ -27,6 +27,13 @@ const reducer = (state, action) => {
                 currentQuestion: action.currentQuestion,
                 loading: false
             }
+        case "setScore":
+            return {
+                ...state,
+                scoreCorrect: action.scoreCorrect,
+                questionsAnswered: action.questionsAnswered,
+                loading: false
+            }
         default:
             return state;
     }
