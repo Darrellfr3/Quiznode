@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 
 router.route("/")
-  .get(function (req) {
+  .get(function (req, res) {
     passport.logOut(req);
   });
 

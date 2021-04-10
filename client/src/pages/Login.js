@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import '../components/Login/style.css';
 import '../components/Landing/index.scss';
 import { Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect, useLocation } from 'react-router-dom';
+import ReactDOM, { render } from "react-dom";
 import API from '../utils/API';
 import SignUp from "./SignUp";
 import Navbar from "../components/navbar";
@@ -20,20 +21,20 @@ function Login() {
       setUserPassword(event.target.value);
     };
 
-    const submitLogin = event => {
-      // Preventing the default behavior of the form submit (which is to refresh the page)
+    const submitUserForm = event => {
       event.preventDefault();
-
       const UserSubmit = {
         username: userName,
         password: userPassword
       };
-
-      API.authUser(UserSubmit).then(response => {
-        console.log(response.data);
-      })
+      API.authUser(UserSubmit).then(() => {
+        return (
+          render(<Redirect to={{
+            pathname: "/home"
+          }}/>)
+        );
+      });
     };
-
 
     return (
       <Router>
@@ -51,7 +52,7 @@ function Login() {
               <label>Username</label>
               <input 
                 value={userName}
-                handleUserNameInputChange={handleUserNameInputChange}
+                onChange={handleUserNameInputChange}
                 type="username" 
                 className="form-control" 
                 placeholder="Enter Username" 
@@ -62,14 +63,18 @@ function Login() {
               <label>Password</label>
               <input 
                 value={userPassword}
-                handleUserPasswordInputChange={handleUserPasswordInputChange}
+                onChange={handleUserPasswordInputChange}
                 type="password" 
                 className="form-control" 
                 placeholder="Enter password" 
               />
           </div>
   
-          <Button type="submit" onClick={submitLogin} className="btn btn-dark btn-lg btn-block">Sign in</Button>
+          <Button 
+            type="submit"
+            onClick={submitUserForm} 
+            className="btn btn-dark btn-lg btn-block">Sign in
+          </Button>
           <p className="forgot-password text-right">
           <Link onClick={() => {window.location.href="/SignUp"}} className="nav-link">SignUp</Link>
           <Switch>
