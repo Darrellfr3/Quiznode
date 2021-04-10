@@ -27,6 +27,7 @@ function Login() {
         username: userName,
         password: userPassword
       };
+      const validate = false;
       API.authUser(UserSubmit).then(history.push("/home"));
     };
 
